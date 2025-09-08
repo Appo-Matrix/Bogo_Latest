@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 class SplashScreen extends StatefulWidget {
   final String nextLocation;
 
-  const SplashScreen({super.key, this.nextLocation = '/filterScreen'});
+  const SplashScreen({super.key, this.nextLocation = '/onboardingScreen'});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: BAppColors.deeper,
+      backgroundColor: BAppColors.backGroundColor,
 
       // Body
       body: SafeArea(
