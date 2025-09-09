@@ -19,7 +19,9 @@ class BAppColors {
   static const Color darkest = Color(0xFF4A6A29); // Shade 800
   static const Color deepest = Color(0xFF34481C); // Shade 900
   static const Color deeper = Color(0xFF8BC255); // Shade 900
-  static const Color backGroundColor = Color(0xFF79AD46); // Shade 200
+  static const Color backGroundColor = Color(0xFF79AD46);
+
+  static const Color buttonGreen = Color(0xFF8BC255);// Shade 200
 
   // text  mode grays
   static const Color lightGray100 = Color(0xFFF2F4F7); // Lightest gray
