@@ -9,6 +9,18 @@ class BImages {
   static const String onboarding4 = "assets/images/onboarding-4.gif";
   static const String onboarding5 = "assets/images/onboarding-5.gif";
   static const String onboarding6 = "assets/images/onboarding-6.gif";
+  static const String logo = "assets/images/logo.png";
+  static const String location = "assets/icons/location.svg";
+
+// Images
+//   static const String profile = "assets/images/active_profile.png";
+  static const String profile2 = "assets/images/profile_pic2.png";
+  static const String hotel1 = "assets/images/hotel1.png";
+  static const String hotel2 = "assets/images/hotel2.png";
+  static const String hotel3 = "assets/images/hotel3.png";
+  static const String hotel4 = "assets/images/hotel4.png";
+  static const String carousel1 = "assets/images/carousel1.png";
+  static const String carousel2 = "assets/images/carousel2.png";
 
   //Auth social icon
 
@@ -27,7 +39,6 @@ class BImages {
   static const String leadingIcon = "assets/icons/leadingIcon.png";
   // static const String notification = "assets/icons/notificationIcon.png";
   static const String bottomHomeIcon = "assets/icons/navHomeWhite.png";
-  static const String filter = "assets/icons/filter.png";
   static const String cards = "assets/images/card.png";
   static const String squareImage = "assets/images/squareImage.png";
   static const String discount = "assets/icons/discount.png";
@@ -43,6 +54,25 @@ class BImages {
   static const String emojiFace = "assets/icons/emojiFace.png";
   static const String sendTriangle = "assets/icons/sendTriangle.png";
   static const String phoneMock = "assets/images/phoneMock.png";
+// Icons
+  static const String search = "assets/icons/search.svg";
+  static const String clock = "assets/icons/clock.svg";
+  static const String read = "assets/icons/read.svg";
+  static const String driving = "assets/icons/driving.svg";
+  static const String call = "assets/icons/call.svg";
+  static const String pizza = "assets/icons/pizza.svg";
+  static const String hotel = "assets/icons/hotel.svg";
+  static const String entertainment = "assets/icons/entertainment.svg";
+  static const String sport = "assets/icons/sport.svg";
+  static const String favourite = "assets/icons/favourite.svg";
+  static const String filter = "assets/icons/filter.svg";
+  static const String drawer = "assets/icons/drawer.svg";
+  static const String food = "assets/icons/food.svg";
+  static const String back = "assets/icons/back.svg";
+  static const String notifications = "assets/icons/notifications.svg";
+// Store images
+
+
   // filter category images
 
 

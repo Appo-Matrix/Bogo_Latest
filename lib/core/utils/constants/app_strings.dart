@@ -1,5 +1,21 @@
 class AppStrings {
   static const String appName = "Bogo App";
+  static const String hotelName = "Hotel Name";
+  static const String otpHint = "Enter your secret PIN";
+  static const String premiumAccount = "PREMIUM ACCOUNT";
+  static const String aziri000 = "aziri000";
+  static const String aziriAbdessatar = "AZIRI ABDESSATAR";
+  static const String budgetDoubleRoom = "Budget Double Room";
+  static const String offerInfoHint =
+      "I ask you to prepare an extra bed for my young child";
+  static const String afghanistan = "Afghanistan";
+  static const String infoDesc =
+      "At our barber shop, we provide the highest levels of service and attention to detail attention to detail.";
+  static const String searchHint = "Search from here";
+  static const String offerDesc =
+      "You must book two nights to benefit from one free night";
+  static const String offerCardDesc =
+      "A unique, user-friendly experience, emotionally powerful carrying ...";
 
 // Onboarding  Strings
   static const String onboarding1Title = "Benefit from the best prices";

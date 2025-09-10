@@ -1,119 +1,130 @@
+import 'package:bogo_latest/core/utils/common_widgets/app_buttons.dart';
+import 'package:bogo_latest/core/utils/common_widgets/app_dot_carousel.dart';
+import 'package:bogo_latest/core/utils/common_widgets/app_scaffold.dart';
+import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
+import 'package:bogo_latest/core/utils/common_widgets/custom_text_field.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
-import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/features/dashboard/filter/filter_screen.dart';
-import 'package:bogo_latest/features/dashboard/home/widgets/bogo_icon_button.dart';
-import 'package:bogo_latest/features/dashboard/home/widgets/bogo_search_textfield.dart';
-import 'package:bogo_latest/features/dashboard/home/widgets/bogo_store_card.dart';
-import 'package:bogo_latest/features/dashboard/home/widgets/category_selector.dart';
-import 'package:bogo_latest/features/dashboard/home/widgets/restaurant_list_tile.dart';
+import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_strings.dart';
+import 'package:bogo_latest/features/dashboard/widgets/info_list_tile.dart';
 import 'package:flutter/material.dart';
-import 'widgets/bogo_app_bar.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-
-      // App Bar
-      appBar: BogoAppBar(
+      appBar: CustomAppBar(
+        leading: BImages.drawer,
+        showLogo: true,
         showNotification: true,
-        onNotificationTap: () {},
+        trailingBorder: true,
       ),
-
-      // Body
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
+      body: AppScreen(
+        child: Column(
+          children: [
+            AppSpacers.v10,
+            Row(
               children: [
-                SizedBox(
-                  height: 15,
+                Expanded(
+                    child: CustomTextField(
+                  hintText: AppStrings.searchHint,
+                  prefixIcon: BImages.search,
+                )),
+                AppSpacers.h5,
+                AppButtons.square(
+                  imageIcon: BImages.filter,
+                  onTap: () {},
                 ),
-                // Search Text field and Box
-                Row(
-                  children: [
-                    BogoSearchField(),
-                    SizedBox(
-                      width: 3,
-                    ),
-                    BogoIconButton(
-                      assetPath: BImages.filter,
-                      backgroundColor: BAppColors.black1000,
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => FilterScreen()));
-                      },
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                BogoStoreCard(
-                  images: [
-                    BImages.cards,
-                    BImages.cards,
-                    BImages.cards,
-                  ],
-                  storeName: "Store Name",
-                  distance: "5.2KM",
-                  location: "Afghanistan",
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                CategorySelector(
-                  categories: [
-                    CategoryItem(
-                        iconPath: BImages.filter, label: "Restaurants"),
-                    CategoryItem(iconPath: BImages.filter, label: "Hotels"),
-                    CategoryItem(iconPath: BImages.filter, label: "Dishes"),
-                    CategoryItem(iconPath: BImages.filter, label: "Cafes"),
-                  ],
-                  onCategorySelected: (index) {
-                    if (index == -1) {
-                      print("Show Mix (None selected)");
-                    } else if (index == 0) {
-                      print("Show Restaurants");
-                    } else if (index == 1) {
-                      print("Show Hotels");
-                    } else if (index == 2) {
-                      print("Show Dishes");
-                    } else if (index == 3) {
-                      print("Show Cafes");
-                    }
-                  },
-                ),
-
-                SizedBox(
-                  height: 20,
-                ),
-                RestaurantListTile(
-                  imageAsset: BImages.squareImage,
-                  title: 'Store Name',
-                  distance: '5.2KM',
-                  country: 'Afghanistan',
-                  rating: '4.2',
-                  ratingCount: '55',
-                  xp: '300',
-                  initiallyFavorited: false,
-                  showClosedOverlay:
-                      false, // second item jaisa overlay chahiye to true
-                )
               ],
             ),
-          ),
+            AppSpacers.v20,
+            AppDotCarousel(slides: [
+              CarouselSlide(
+                  carouselImage: BImages.carousel1,
+                  onFavourite: () {},
+                  title: AppStrings.hotelName,
+                  distance: 5.2,
+                  location: AppStrings.afghanistan,
+                  onRate: () {}),
+              CarouselSlide(
+                  carouselImage: BImages.carousel1,
+                  onFavourite: () {},
+                  title: AppStrings.hotelName,
+                  distance: 5.2,
+                  location: AppStrings.afghanistan,
+                  onRate: () {}),
+              CarouselSlide(
+                  carouselImage: BImages.carousel1,
+                  onFavourite: () {},
+                  title: AppStrings.hotelName,
+                  distance: 5.2,
+                  location: AppStrings.afghanistan,
+                  onRate: () {})
+            ], height: 177),
+            AppSpacers.v20,
+            Center(
+              child: SizedBox(
+                height: 120,
+                width: 385,
+                child: Center(
+                  child: FixedPositionAnimatedButtonList(items: [
+                    FixedPositionAnimatedButtonItem(
+                        imageIcon: BImages.pizza,
+                        onTap: () {},
+                        textTitle: "restaurants"),
+                    FixedPositionAnimatedButtonItem(
+                        imageIcon: BImages.hotel,
+                        onTap: () {},
+                        textTitle: "hotels"),
+                    FixedPositionAnimatedButtonItem(
+                        imageIcon: BImages.sport,
+                        onTap: () {},
+                        textTitle: "sport"),
+                    FixedPositionAnimatedButtonItem(
+                        imageIcon: BImages.entertainment,
+                        onTap: () {},
+                        textTitle: "entertainment"),
+                  ]),
+                ),
+              ),
+            ),
+            AppSpacers.v20,
+            InfoItemList(items: [
+              InfoItems(
+                  imagePath: BImages.hotel3,
+                  onFavourite: () {},
+                  rating: 4.2,
+                  title: AppStrings.hotelName,
+                  distance: 5.2,
+                  location: AppStrings.afghanistan,
+                  views: 55,
+                  notch1: "1=2",
+                  notch2: "25%"),
+              InfoItems(
+                  imagePath: BImages.hotel2,
+                  onFavourite: () {},
+                  rating: 4.2,
+                  title: AppStrings.hotelName,
+                  distance: 5.2,
+                  location: AppStrings.afghanistan,
+                  views: 55,
+                  notch1: "1=2",
+                  notch2: "25%"),
+              InfoItems(
+                  imagePath: BImages.hotel3,
+                  onFavourite: () {},
+                  rating: 4.2,
+                  title: AppStrings.hotelName,
+                  distance: 5.2,
+                  location: AppStrings.afghanistan,
+                  views: 55,
+                  notch1: "1=2",
+                  notch2: "25%")
+            ]),
+            AppSpacers.v90
+          ],
         ),
       ),
     );
