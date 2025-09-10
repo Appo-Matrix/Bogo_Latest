@@ -1,4 +1,4 @@
-
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter/material.dart';
 
 import '../core/utils/constants/app_colors.dart';
@@ -11,11 +11,11 @@ import 'custom_themes/outline_button_theme.dart';
 import 'custom_themes/text_field_theme.dart';
 import 'custom_themes/text_theme.dart';
 
-
-
 class BAppTheme {
   BAppTheme._();
+
   static ThemeData lightTheme = ThemeData(
+    fontFamily: AppFontFamilies.poppins,
     useMaterial3: true,
     disabledColor: BAppColors.black700,
     brightness: Brightness.light,
@@ -29,7 +29,6 @@ class BAppTheme {
     elevatedButtonTheme: BElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: BOutlinedButtonTheme.lightOutlinedButtonTheme,
     inputDecorationTheme: BTextFieldTheme.lightInputDecorationTheme,
-
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -47,5 +46,4 @@ class BAppTheme {
     outlinedButtonTheme: BOutlinedButtonTheme.darkOutlinedButtonTheme,
     inputDecorationTheme: BTextFieldTheme.darkInputDecorationTheme,
   );
-
 }

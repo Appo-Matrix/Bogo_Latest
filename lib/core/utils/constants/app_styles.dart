@@ -52,4 +52,6 @@ class BAppStyles {
 
 class AppFontFamilies {
   static String poppins = 'Poppins';
+  static String baloo2 = 'Baloo2';
+  static String aBeeZee = 'ABeeZee';
 }

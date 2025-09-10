@@ -1,0 +1,148 @@
+import 'package:bogo_latest/core/utils/common_widgets/notch_clippers.dart';
+import 'package:flutter/material.dart';
+import 'package:bogo_latest/core/utils/common_widgets/app_buttons.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
+import 'package:bogo_latest/features/dashboard/widgets/location_info.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+class InfoItems {
+  final String imagePath;
+  final String title;
+  final String notch1;
+  final String notch2;
+  final VoidCallback onFavourite;
+  final double rating;
+  final double distance;
+  final String location;
+  final int views;
+
+  const InfoItems({
+    required this.imagePath,
+    required this.onFavourite,
+    required this.rating,
+    required this.title,
+    required this.distance,
+    required this.location,
+    required this.views,
+    required this.notch1,
+    required this.notch2,
+  });
+}
+
+class InfoItemList extends StatelessWidget {
+  final List<InfoItems> items;
+
+  const InfoItemList({required this.items, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: items.map((items) {
+        return _InfoListTile(infoItems: items);
+      }).toList(),
+    );
+  }
+}
+
+class _InfoListTile extends StatelessWidget {
+  final InfoItems infoItems;
+
+  const _InfoListTile({required this.infoItems, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Stack(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox.square(
+                dimension: 133,
+                child: Image.asset(infoItems.imagePath),
+              ),
+              Expanded(
+                child: ListTile(
+                  title: Text(
+                    infoItems.title,
+                    style: BAppStyles.poppins(
+                        color: BAppColors.black1000,
+                        fontSize: 22,
+                        weight: FontWeight.w400),
+                  ),
+                  subtitle: Column(
+                    children: [
+                      AppSpacers.v10,
+                      Center(
+                        child: LocationInfo(
+                          distance: "${infoItems.distance}\KM",
+                          location: infoItems.location,
+                          fontColor: BAppColors.lightGray400,
+                        ),
+                      ),
+                      AppSpacers.v10,
+                      Row(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/icons/rating.svg",
+                            color: BAppColors.lightGray600,
+                          ),
+                          AppSpacers.h10,
+                          Text(
+                            "${infoItems.rating}",
+                            style: BAppStyles.body,
+                          ),
+                          AppSpacers.h10,
+                          Text("(${infoItems.views})", style: BAppStyles.body)
+                        ],
+                      ),
+                      AppSpacers.v10,
+                      Row(
+                        children: [
+                          _notchContainer(infoItems.notch1),
+                          AppSpacers.h10,
+                          _notchContainer(infoItems.notch2),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: AppButtons.backBlur(
+                imageIcon: "assets/icons/favourite_outlined.svg",
+                imageColor: BAppColors.black1000,
+                imageSize: 30,
+                blurScale: 0,
+                isBackGTransparent: true,
+                onTap: infoItems.onFavourite),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+Widget _notchContainer(String text) {
+  return ClipPath(
+    clipper: QuadVerticalNotchedClipper(),
+    child: Container(
+      height: 26,
+      width: 41,
+      decoration: BoxDecoration(
+          color: BAppColors.black1000, borderRadius: BorderRadius.circular(2)),
+      child: Center(
+        child: Text(
+          text,
+          style: BAppStyles.caption.copyWith(color: BAppColors.white),
+        ),
+      ),
+    ),
+  );
+}

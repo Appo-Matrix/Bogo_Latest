@@ -4,6 +4,12 @@ import 'package:bogo_latest/features/auth/screens/login/login_screen.dart';
 import 'package:bogo_latest/features/auth/screens/otp/otp_verification_screen.dart';
 import 'package:bogo_latest/features/onboarding/onboarding_screen.dart';
 import 'package:bogo_latest/features/auth/screens/register_complete/register_complete_screen.dart';
+import 'package:bogo_latest/features/dashboard/home/home_screen.dart';
+import 'package:bogo_latest/features/dashboard/home/home_screen2.dart';
+import 'package:bogo_latest/features/dashboard/offers/offer_info_screen.dart';
+import 'package:bogo_latest/features/dashboard/offers/offers_screen.dart';
+import 'package:bogo_latest/features/dashboard/profile/offer_otp_screen.dart';
+import 'package:bogo_latest/features/dashboard/work_time/work_time_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/splash/splash_screen.dart';
@@ -51,6 +57,36 @@ class AppRouter {
       ),
 
 
+      GoRoute(
+        path: '/offersScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const OffersScreen(), state),
+      ),
+      GoRoute(
+        path: '/offersInfoScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const OfferInfoScreen(), state),
+      ),
+      GoRoute(
+        path: '/workTimeScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const WorkTimeScreen(), state),
+      ),
+      GoRoute(
+        path: '/offerOtpScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const OfferOtpScreen(), state),
+      ),
+      GoRoute(
+        path: '/homeScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const HomeScreen(), state),
+      ),
+      GoRoute(
+        path: '/homeScreen2',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const HomeScreen2(), state),
+      ),
     ],
   );
 }
