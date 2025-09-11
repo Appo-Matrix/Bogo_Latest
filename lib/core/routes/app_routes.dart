@@ -2,6 +2,7 @@ import 'package:bogo_latest/features/auth/screens/Register/Register_screen.dart'
 import 'package:bogo_latest/features/auth/screens/auth_home/auth_home_screen.dart';
 import 'package:bogo_latest/features/auth/screens/login/login_screen.dart';
 import 'package:bogo_latest/features/auth/screens/otp/otp_verification_screen.dart';
+import 'package:bogo_latest/features/dashboard/home/home_screen.dart';
 import 'package:bogo_latest/features/onboarding/onboarding_screen.dart';
 import 'package:bogo_latest/features/auth/screens/register_complete/register_complete_screen.dart';
 import 'package:bogo_latest/features/dashboard/home/home_screen.dart';
@@ -54,6 +55,10 @@ class AppRouter {
         path: '/registerCompleteScreen',
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const RegisterCompleteScreen(), state),
+      ),   GoRoute(
+        path: '/homeScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const HomeScreen(), state),
       ),
 
 

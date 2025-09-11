@@ -4,6 +4,7 @@ import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class RegisterCompleteScreen extends StatelessWidget {
   const RegisterCompleteScreen({super.key});
@@ -86,7 +87,8 @@ class RegisterCompleteScreen extends StatelessWidget {
                   backgroundColor: BAppColors.buttonGreen,
                   text: 'Continue',
                   onPressed: () {
-                    // TODO: Next screen navigation
+                    context.push('/homeScreen');
+
                   },
                 ),
                 const SizedBox(height: 40),

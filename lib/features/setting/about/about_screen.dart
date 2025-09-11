@@ -1,8 +1,9 @@
+import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_sizes.dart';
-import '../../../../core/utils/constants/app_styles.dart';
-import '../../../../core/utils/constants/app_assets.dart';
+
 
 class AboutScreen extends StatefulWidget {
   const AboutScreen({super.key});
@@ -49,7 +50,7 @@ class _AboutScreenState extends State<AboutScreen> {
               Row(
                 children: [
                   Image.asset(
-                    XImagesExtra.logo,
+                    BImages.appLogo,
                     width: 94,
                     height: 40,
                     fit: BoxFit.contain,
@@ -197,6 +198,4 @@ class _AboutScreenState extends State<AboutScreen> {
   }
 }
 
-class XImagesExtra {
-  static const String logo = BImages.appLogo;
-}
+

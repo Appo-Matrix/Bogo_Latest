@@ -23,7 +23,6 @@ class BImages {
   static const String carousel2 = "assets/images/carousel2.png";
 
   //Auth social icon
-
   static const String iphone = "assets/icons/iphone_icon.png";
   static const String google = "assets/icons/google_icon.png";
   static const String facebook = "assets/icons/facebook_icon.png";
@@ -32,12 +31,10 @@ class BImages {
   static const String phone = "assets/icons/Phone.png";
   static const String message= "assets/icons/Message.png";
   static const String card= "assets/icons/Card.png";
-
   static const String authProfileImage = "assets/icons/profile_image.png";
   static const String authBackground = "assets/images/auth.jpg";
   static const String completeScreen = "assets/images/complate-screen.png";
   static const String leadingIcon = "assets/icons/leadingIcon.png";
-  // static const String notification = "assets/icons/notificationIcon.png";
   static const String bottomHomeIcon = "assets/icons/navHomeWhite.png";
   static const String cards = "assets/images/card.png";
   static const String squareImage = "assets/images/squareImage.png";
