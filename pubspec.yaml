@@ -16,6 +16,9 @@ dependencies:
 
   # Navigation
   go_router: ^14.0.2
+  intl: ^0.20.2
+  google_maps_flutter: ^2.13.1
+  table_calendar: ^3.2.0
   flutter_svg: ^2.2.1
   carousel_slider: ^5.1.1
   pinput: ^5.0.2
@@ -39,16 +42,5 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/icons/
     - assets/fonts/
-  fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
-        - asset: assets/fonts/Poppins-Black.ttf
-    - family:  Baloo2
-      fonts:
-        - asset: assets/fonts/Baloo2-Regular.ttf
-    - family: ABeeZee
-      fonts:
-        - asset: assets/fonts/ABeeZee-Regular.ttf
+

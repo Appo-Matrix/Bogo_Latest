@@ -23,7 +23,18 @@ class BImages {
   static const String carousel2 = "assets/images/carousel2.png";
 
   //Auth social icon
+  // Images
+  static const String pizza = "assets/images/Rectangle 42343.png";
 
+  // Icons
+  static const String appLoge = "assets/images/app_logo.png";
+  static const String breakfastIncluded = "assets/icons/breakfast.png";
+  static const String parking = "assets/icons/parking.png";
+  static const String beach = "assets/icons/Vector.png";
+  static const String profile='assets/images/profile.png';
+  static const String hImage='assets/images/hotel.png';
+
+// Store images
   static const String iphone = "assets/icons/iphone_icon.png";
   static const String google = "assets/icons/google_icon.png";
   static const String facebook = "assets/icons/facebook_icon.png";
@@ -44,7 +55,6 @@ class BImages {
   static const String discount = "assets/icons/discount.png";
   static const String barcode = "assets/icons/barcode.png";
   static const String megaphone = "assets/icons/megaphone.png";
-  static const String profile = "assets/icons/profile.png";
   static const String coins = "assets/icons/coin.png";
   static const String crown = "assets/icons/crown.png";
   static const String bogoAi = "assets/images/bogoAi.png";
@@ -60,7 +70,6 @@ class BImages {
   static const String read = "assets/icons/read.svg";
   static const String driving = "assets/icons/driving.svg";
   static const String call = "assets/icons/call.svg";
-  static const String pizza = "assets/icons/pizza.svg";
   static const String hotel = "assets/icons/hotel.svg";
   static const String entertainment = "assets/icons/entertainment.svg";
   static const String sport = "assets/icons/sport.svg";

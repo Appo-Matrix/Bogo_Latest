@@ -26,6 +26,37 @@ class AppRouter {
             NavigationHelper.slideFromRight(const SplashScreen(), state),
       ),
       GoRoute(
+        path: '/reservationScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const ReservationScreen(), state),
+      ),
+      GoRoute(
+        path: '/storeDetailScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const StoreDetailScreen(), state),
+      ),
+      GoRoute(
+        path: '/enterPriceScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const EnterPriceScreen(), state),
+      ),
+      GoRoute(
+        path: '/productListScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const ProductListScreen(), state),
+      ),
+      GoRoute(
+        path: '/worktimeScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const WorktimeScreen(), state),
+      ),
+
+      GoRoute(
+        path: '/reservationScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const ReservationScreen(), state),
+      ),
+      GoRoute(
         path: '/onboardingScreen',
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const OnboardingScreen(), state),
