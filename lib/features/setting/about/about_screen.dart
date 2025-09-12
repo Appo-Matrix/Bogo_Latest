@@ -1,6 +1,7 @@
+import 'package:bogo_latest/features/setting/about/widgets/bogo_about_faq_content.dart';
+import 'package:bogo_latest/features/setting/about/widgets/bogo_pills_button.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_sizes.dart';
 import '../../../../core/utils/constants/app_styles.dart';
 import '../../../../core/utils/constants/app_assets.dart';
 
@@ -12,182 +13,85 @@ class AboutScreen extends StatefulWidget {
 }
 
 class _AboutScreenState extends State<AboutScreen> {
-  bool showFAQ = false; // toggle between About us and FAQ
+  bool showFAQ = false;
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: BAppColors.black1000,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // back button and heading
+              /// Back button + heading
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
                     icon: Icon(Icons.arrow_back, color: BAppColors.white),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                    onPressed: () => Navigator.pop(context),
                   ),
-                  Text(
-                    showFAQ ? "FAQ" : "About us",
-                    style: BAppStyles.poppins(
-                      color: BAppColors.white,
-                      fontSize: BSizes.fontSizeLgx,
-                      weight: FontWeight.w800,
+                  Expanded(
+                    child: Text(
+                      showFAQ ? "FAQ" : "About us",
+                      overflow: TextOverflow.ellipsis,
+                      style: BAppStyles.poppins(
+                        color: BAppColors.white,
+                        fontSize: screenWidth * 0.06, // responsive font
+                        weight: FontWeight.w800,
+                      ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
-              // logo and pills
+
+              SizedBox(height: screenHeight * 0.03),
+
+              /// Logo and pills row
               Row(
                 children: [
                   Image.asset(
-                    XImagesExtra.logo,
-                    width: 94,
-                    height: 40,
+                    BImages.appLogo, // 🔥 direct use, no extra class
+                    width: screenWidth * 0.25,
+                    height: screenHeight * 0.05,
                     fit: BoxFit.contain,
                   ),
-                  const SizedBox(width: 14),
-                  GestureDetector(
+                  SizedBox(width: screenWidth * 0.04),
+
+                  /// About Us button
+                  BogoPillButton(
+                    isActive: !showFAQ,
+                    label: "About Us",
+                    icon: Icons.info,
                     onTap: () => setState(() => showFAQ = false),
-                    child: Container(
-                      width: 119,
-                      height: 57,
-                      decoration: BoxDecoration(
-                        color: showFAQ
-                            ? BAppColors.white.withOpacity(0.12)
-                            : BAppColors.main,
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 44,
-                            height: 44,
-                            decoration: BoxDecoration(
-                              color: BAppColors.green400,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Icon(
-                              Icons.info,
-                              color: BAppColors.white,
-                            ),
-                          ),
-                          Text(
-                            "About us",
-                            style: BAppStyles.poppins(
-                              color: BAppColors.white,
-                              fontSize: BSizes.fontSizeMd,
-                              weight: FontWeight.w800,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
                   ),
-                  const SizedBox(width: 12),
-                  GestureDetector(
+                  SizedBox(width: screenWidth * 0.03),
+
+                  /// FAQ button
+                  BogoPillButton(
+                    isActive: showFAQ,
+                    label: "FAQ",
+                    icon: Icons.help_outline,
                     onTap: () => setState(() => showFAQ = true),
-                    child: Container(
-                      width: 119,
-                      height: 57,
-                      decoration: BoxDecoration(
-                        color: showFAQ
-                            ? BAppColors.main
-                            : BAppColors.white.withOpacity(0.12),
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 44,
-                            height: 44,
-                            decoration: BoxDecoration(
-                              color: BAppColors.green400,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Icon(
-                              Icons.info,
-                              color: BAppColors.white,
-                            ),
-                          ),
-                          Text(
-                            "FAQ",
-                            style: BAppStyles.poppins(
-                              color: BAppColors.white,
-                              fontSize: BSizes.fontSizeMd,
-                              weight: FontWeight.w800,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
-              // content
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(0, 6, 0, 28),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (!showFAQ)
-                        Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: BAppColors.black900,
-                            borderRadius: BorderRadius.circular(18),
-                          ),
-                          padding: const EdgeInsets.fromLTRB(18, 18, 18, 22),
-                          child: Text(
-                            "bogo is a lifestyle application that provides incentive offers (BOGO-X% -2for3) of well-known brands for dining, entertainment, leisure, beauty and hotels in all over Algeria. "
-                            "Valid 7 days a week (excluding public holidays) and their length. Our app is set with a lot of great features that will make your experience more fun! "
-                            "It's easy to use and you have always your offers with you. Offers are added monthly, exclusive from new traders every month. "
-                            "You can share these amazing shows by sharing with family and friends.",
-                            textAlign: TextAlign.justify,
-                            style: BAppStyles.poppins(
-                              color: BAppColors.white,
-                              fontSize: BSizes.fontSizeSm,
-                              weight: FontWeight.w600,
-                              height: 1.8,
-                            ),
-                          ),
-                        ),
-                      if (showFAQ)
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: List.generate(5, (index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 16),
-                              child: Text(
-                                "Q${index + 1}: This is a temporary FAQ question?",
-                                style: BAppStyles.poppins(
-                                  color: BAppColors.white,
-                                  fontSize: BSizes.fontSizeMd,
-                                  weight: FontWeight.w600,
-                                ),
-                              ),
-                            );
-                          }),
-                        ),
-                    ],
-                  ),
-                ),
+
+              SizedBox(height: screenHeight * 0.03),
+
+              /// Content (About us / FAQ)
+              BogoAboutFaqContent(
+                showFAQ: showFAQ,
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
               ),
             ],
           ),
@@ -195,8 +99,4 @@ class _AboutScreenState extends State<AboutScreen> {
       ),
     );
   }
-}
-
-class XImagesExtra {
-  static const String logo = BImages.appLogo;
 }

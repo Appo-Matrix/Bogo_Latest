@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_styles.dart';
-import '../../../../core/utils/constants/app_sizes.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 
 class CategorySelector extends StatefulWidget {
   final List<CategoryItem> categories;
@@ -24,58 +24,74 @@ class _CategorySelectorState extends State<CategorySelector> {
     setState(() {
       if (_selectedIndex == index) {
         _selectedIndex = -1; // deselect
-        widget.onCategorySelected(-1);
       } else {
-        _selectedIndex = index;
-        widget.onCategorySelected(index);
+        _selectedIndex = index; // select
       }
     });
+    widget.onCategorySelected(_selectedIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Wrap(
+      spacing: 15,
+      runSpacing: 15,
+      alignment: WrapAlignment.center,
       children: List.generate(widget.categories.length, (index) {
         final isSelected = _selectedIndex == index;
-        final category = widget.categories[index];
+        final item = widget.categories[index];
 
         return GestureDetector(
           onTap: () => _onTap(index),
-          child: Column(
-            children: [
-              // Box (height increases downward only)
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-                width: 92,
-                height: isSelected ? 125 : 92,
-                decoration: BoxDecoration(
-                  color: isSelected ? BAppColors.primary : BAppColors.black1000,
-                  borderRadius: BorderRadius.circular(20),
+          child: SizedBox(
+            width: 80,
+            height: 125,
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                // Background only
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  width: 80,
+                  height: isSelected ? 125 : 80,
+                  decoration: BoxDecoration(
+                    color: isSelected ? BAppColors.main : BAppColors.black1000,
+                    borderRadius: BorderRadius.circular(25),
+                  ),
                 ),
-                alignment: Alignment.topCenter,
-                // Keep icon fixed
-                padding: const EdgeInsets.only(top: 32),
-                // Icon stays top
-                child: Image.asset(
-                  category.iconPath,
-                  width: 28,
-                  height: 28,
-                  color: Colors.white,
+
+                // Icon stays fixed (constant position)
+                Positioned(
+                  top: 25,
+                  child: Image.asset(
+                    item.iconPath,
+                    width: 28,
+                    height: 28,
+                    color: BAppColors.white,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              // Text always outside
-              Text(
-                category.label,
-                style: BAppStyles.poppins(
-                  fontSize: BSizes.fontSizeSm,
-                  weight: FontWeight.w500,
-                  color: isSelected ? BAppColors.primary : Colors.black,
+
+                // Label fixed baseline
+                Positioned(
+                  top: 100,
+                  left: 0,
+                  right: 0,
+                  child: Text(
+                    item.label,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: BAppStyles.poppins(
+                      fontSize: BSizes.fontSizeSm,
+                      weight: FontWeight.w500,
+                      color: isSelected
+                          ? BAppColors.black1000
+                          : BAppColors.black500,
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       }),

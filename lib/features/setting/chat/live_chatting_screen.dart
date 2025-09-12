@@ -1,6 +1,7 @@
+import 'package:bogo_latest/features/setting/chat/widgets/chat_bubble.dart';
+import 'package:bogo_latest/features/setting/chat/widgets/chat_input_field.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_sizes.dart';
 import '../../../../core/utils/constants/app_styles.dart';
 import '../../../../core/utils/constants/app_assets.dart';
 
@@ -13,19 +14,23 @@ class LiveChattingScreen extends StatefulWidget {
 
 class _LiveChattingScreenState extends State<LiveChattingScreen> {
   final TextEditingController _tc = TextEditingController();
-  static const double _inputH = 78;
-  static const double _inputRadius = 28;
 
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
+
+    // scaling factors
+    final chatBubbleW = w * 0.75;
+    final avatarSize = w * 0.18;
+    final inputH = h * 0.11;
 
     return Scaffold(
       backgroundColor: BAppColors.black1000,
       body: SafeArea(
         child: Stack(
           children: [
-            // App bar (back + profile)
+            // App Bar
             Positioned(
               left: 8,
               right: 8,
@@ -41,22 +46,24 @@ class _LiveChattingScreenState extends State<LiveChattingScreen> {
                     alignment: Alignment.center,
                     children: [
                       Container(
-                        padding: const EdgeInsets.all(3),
+                        padding: EdgeInsets.all(w * 0.01),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          border:
-                              Border.all(color: BAppColors.black700, width: 2),
+                          border: Border.all(
+                              color: BAppColors.black700, width: w * 0.005),
                         ),
                         child: CircleAvatar(
-                          radius: 18,
+                          radius: w * 0.045,
                           backgroundImage: AssetImage(BImages.profile),
                         ),
                       ),
-                      const Positioned(
+                      Positioned(
                         right: 2,
                         top: 2,
                         child: CircleAvatar(
-                            backgroundColor: Color(0xFF63E06E), radius: 5),
+                          backgroundColor: const Color(0xFF63E06E),
+                          radius: w * 0.015,
+                        ),
                       ),
                     ],
                   ),
@@ -64,24 +71,31 @@ class _LiveChattingScreenState extends State<LiveChattingScreen> {
               ),
             ),
 
-            // Messages (bottom aligned)
+            // Messages
             Positioned.fill(
-              top: 56,
-              bottom: _inputH + 80,
+              top: h * 0.07,
+              bottom: inputH + h * 0.05,
               child: ListView(
                 reverse: true,
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                padding: EdgeInsets.symmetric(
+                    horizontal: w * 0.04, vertical: h * 0.05),
                 children: [
+
+                  // User Message
                   Align(
                     alignment: Alignment.centerRight,
                     child: Container(
-                      width: 314,
-                      height: 92,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 18, vertical: 14),
+                      constraints: BoxConstraints(
+                        minHeight: h * 0.08,         // fixed minimum height
+                        maxWidth: chatBubbleW,  // responsive width
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: w * 0.05,
+                        vertical: h * 0.019,
+                      ),
                       decoration: BoxDecoration(
                         color: BAppColors.black900,
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(w * 0.08),
                       ),
                       child: Center(
                         child: Text(
@@ -89,7 +103,7 @@ class _LiveChattingScreenState extends State<LiveChattingScreen> {
                           textAlign: TextAlign.center,
                           style: BAppStyles.poppins(
                             color: BAppColors.white,
-                            fontSize: BSizes.fontSizeMd,
+                            fontSize: w * 0.04,
                             weight: FontWeight.w700,
                           ),
                         ),
@@ -97,183 +111,46 @@ class _LiveChattingScreenState extends State<LiveChattingScreen> {
                     ),
                   ),
 
-                  const SizedBox(height: 12), // Space between messages
+                  SizedBox(height: h * 0.015),
 
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(width: 15),
-                      Stack(
-                        clipBehavior: Clip.none,
-                        children: [
-                          Container(
-                            width: 312,
-                            height: 92,
-                            padding: const EdgeInsets.fromLTRB(75, 28, 18, 16),
-                            decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(46),
-                                bottomRight: Radius.circular(46),
-                                topLeft: Radius.circular(95),
-                                bottomLeft: Radius.circular(16),
-                              ),
-                              gradient: const LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Color(0xFF8DD05E),
-                                  Color(0xFF64AF4E),
-                                ],
-                              ),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black26,
-                                  blurRadius: 12,
-                                  offset: Offset(0, 4),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "hello!",
-                                  style: BAppStyles.poppins(
-                                    color: BAppColors.white,
-                                    fontSize: BSizes.fontSizeMd,
-                                    weight: FontWeight.w800,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  "im Tom How can i help you?",
-                                  style: BAppStyles.poppins(
-                                    color: BAppColors.white,
-                                    fontSize: BSizes.fontSizeSm,
-                                    weight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Positioned(
-                            left: -25,
-                            top: -10,
-                            child: Container(
-                              width: 78,
-                              height: 78,
-                              decoration: BoxDecoration(
-                                color: BAppColors.white,
-                                shape: BoxShape.circle,
-                                boxShadow: const [
-                                  BoxShadow(
-                                      color: Colors.black38,
-                                      blurRadius: 10,
-                                      offset: Offset(0, 4)),
-                                ],
-                              ),
-                              child: Center(
-                                child: Image.asset(
-                                  BImages.appLogoGreen,
-                                  width: 48,
-                                  height: 24,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                  // Left aligned with avatar bubble
+                  ChatBubble(
+                    title: "hello!",
+                    subtitle: "I'm Tom, how can I help you?",
+                    isBot: true,
                   ),
+
                 ],
               ),
             ),
 
-            // Bottom input (avatar + cloud outside top-left)
+            // Input Field
             Positioned(
-              left: 16,
-              right: 16,
-              bottom: 12,
+              left: w * 0.04,
+              right: w * 0.04,
+              bottom: h * 0.015,
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  Container(
-                    width: 384,
-                    height: 92,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF232323),
-                      borderRadius: BorderRadius.circular(41),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.black54,
-                            blurRadius: 18,
-                            offset: Offset(0, 8)),
-                      ],
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(
-                      children: [
-                        Center(
-                          child: Image.asset(BImages.emojiFace,
-                              width: 43, height: 43, fit: BoxFit.contain),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: TextField(
-                            controller: _tc,
-                            style: BAppStyles.poppins(
-                              color: BAppColors.white,
-                              fontSize: BSizes.fontSizeMd,
-                              weight: FontWeight.w700,
-                            ),
-                            decoration: InputDecoration(
-                              hintText: "Text message",
-                              hintStyle: BAppStyles.poppins(
-                                color: BAppColors.white.withOpacity(0.85),
-                                fontSize: BSizes.fontSizeMd,
-                                weight: FontWeight.w700,
-                              ),
-                              border: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              isDense: true,
-                              contentPadding: EdgeInsets.zero,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Container(
-                            width: 68,
-                            height: 68,
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF4B4B4B),
-                              shape: BoxShape.circle,
-                            ),
-                            child: Center(
-                              child: Image.asset(
-                                BImages.sendTriangle,
-                                width: 35,
-                                height: 35,
-                                fit: BoxFit.contain,
-                                color: BAppColors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  ChatInputField(
+                    controller: _tc,
+                    onSend: () {
+                      print("Message Sent: ${_tc.text}");
+                      _tc.clear();
+                    },
                   ),
+
+
+                  // Floating avatar + thought cloud
                   Positioned(
-                    left: 25,
-                    top: -62,
+                    left: w * 0.06,
+                    top: -h * 0.07,
                     child: Row(
                       children: [
                         Image.asset(BImages.user3d,
-                            width: 62, height: 62, fit: BoxFit.contain),
+                            width: w * 0.15, height: w * 0.15),
                         Image.asset(BImages.thoughtCloud,
-                            width: 51, height: 34, fit: BoxFit.contain),
+                            width: w * 0.12, height: h * 0.05),
                       ],
                     ),
                   ),
