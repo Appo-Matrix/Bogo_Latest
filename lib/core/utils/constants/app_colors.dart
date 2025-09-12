@@ -120,5 +120,10 @@ class BAppColors {
   ); // Almost black for deep backgrounds
   static const Color black1000 = Color(
     0xFF0A0A0A,
-  ); // True black for critical elements
+  );// True black for critical elements
+
+// Almost black for deep backgrounds
+  static const Color black10000 = Color(
+    0xFF000000,
+  );
 }

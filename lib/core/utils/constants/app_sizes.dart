@@ -64,6 +64,13 @@ class BSizes {
   static const double cardRadiusXs = 6.0;
   static const double cardElevation = 2.0;
 
+  //Back Arrow Box Size
+  static const double top = 41.0;
+  static const double left = 23.0;
+
+  //Zoom control
+  static const double leftSide = 23.0;
+
   // Image carousal height
   static const double imageCarouselHeight = 200.0;
 
