@@ -1,7 +1,6 @@
-import 'package:bogo_latest/features/dashboard/screen/dashboard_screen.dart';
 import 'package:bogo_latest/theme/themes.dart';
 import 'package:flutter/material.dart';
-import 'core/routes/app_routes.dart';
+import 'features/dashboard/filter/filter_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: BAppTheme.lightTheme,
       darkTheme: BAppTheme.darkTheme,
       // routerConfig: AppRouter.router,
-      home: DashboardScreen(),
+      home: FilterScreen(),
     );
   }
 }
