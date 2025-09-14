@@ -137,6 +137,11 @@ class AppRouter {
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const SettingScreen(), state),
       ),
+      GoRoute(
+        path: '/filterScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const FilterScreen(), state),
+      ),
     ],
   );
 }

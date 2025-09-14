@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                 AppButtons.square(
                   imageIcon: BImages.filter,
                   onTap: () {
-                    context.push('/filterScreen');
+                    context.push('/offersScreen');
                   },
                 ),
               ],
@@ -80,7 +80,6 @@ class HomeScreen extends StatelessWidget {
                     FixedPositionAnimatedButtonItem(
                         imageIcon: BImages.pizza,
                         onTap: () {
-                          context.push('/offersScreen');
                         },
                         textTitle: "restaurants"),
                     FixedPositionAnimatedButtonItem(
