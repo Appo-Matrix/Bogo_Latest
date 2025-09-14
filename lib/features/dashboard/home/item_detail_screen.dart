@@ -5,12 +5,13 @@ import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/common_widgets/notch_clippers.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:dotted_line_flutter/dotted_line_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../core/utils/constants/app_sizes.dart';
 
 class ItemDetailScreen extends StatelessWidget {
   const ItemDetailScreen({super.key});
@@ -34,6 +35,7 @@ class ItemDetailScreen extends StatelessWidget {
                   carouselImage: BImages.carousel2,
                   onFavourite: () {},
                   title: AppStrings.hotelName,
+                  rating: 4.2,
                   leadingImage: BImages.logo,
                   distance: 5.2,
                   location: AppStrings.afghanistan,
@@ -42,12 +44,14 @@ class ItemDetailScreen extends StatelessWidget {
                   carouselImage: BImages.carousel2,
                   onFavourite: () {},
                   leadingImage: BImages.logo,
+                  rating: 4.2,
                   title: AppStrings.hotelName,
                   distance: 5.2,
                   location: AppStrings.afghanistan,
                   onRate: () {}),
               CarouselSlide(
                   carouselImage: BImages.carousel2,
+                  rating: 4.2,
                   onFavourite: () {},
                   leadingImage: BImages.logo,
                   title: AppStrings.hotelName,
