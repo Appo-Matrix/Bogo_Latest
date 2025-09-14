@@ -1,8 +1,8 @@
+import 'package:bogo_latest/features/setting/bogo_ai/widgets/bogo_glow_widget.dart';
+import 'package:bogo_latest/features/setting/bogo_ai/widgets/bogo_intro_text.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/constants/app_colors.dart';
 import '../../../../core/utils/constants/app_assets.dart';
-import '../../../../core/utils/constants/app_sizes.dart';
-import '../../../../core/utils/constants/app_styles.dart';
 
 class BogoAiScreen extends StatefulWidget {
   const BogoAiScreen({super.key});
@@ -14,142 +14,72 @@ class BogoAiScreen extends StatefulWidget {
 class _BogoAiScreenState extends State<BogoAiScreen> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      backgroundColor: BAppColors.black1000, // pure black base
+      backgroundColor: BAppColors.black1000,
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // === Top-left blue glow ===
-          Positioned(
-            left: -180,
-            top: -180,
-            child: Container(
-              width: 420,
-              height: 420,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [
-                    Color(0xFF0D3A55), // deep bluish glow
-                    Colors.transparent,
-                  ],
-                  radius: 0.95,
-                ),
+          // Gradient Colors
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xFF0D3A55), // deep blue
+                  Color(0xFF050505), // dark base (blackish)
+                  Color(0xFF6A3CF4), // purple
+                ],
+                stops: [0.0, 0.7, 1.0],
               ),
             ),
           ),
 
-          // === Bottom-right purple glow ===
+          // Back arrow
           Positioned(
-            right: -180,
-            bottom: -180,
-            child: Container(
-              width: 460,
-              height: 460,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [
-                    Color(0xFF6A3CF4), // vibrant purple
-                    Colors.transparent,
-                  ],
-                  radius: 0.95,
-                ),
-              ),
-            ),
-          ),
-
-          // === Back arrow ===
-          Positioned(
-            top: 16,
-            left: 16,
+            top: screenHeight * 0.02,
+            left: screenWidth * 0.04,
             child: IconButton(
-              icon: Icon(Icons.arrow_back, color: BAppColors.white, size: 28),
+              icon: Icon(Icons.arrow_back,
+                  color: BAppColors.white, size: screenWidth * 0.07),
               onPressed: () => Navigator.of(context).maybePop(),
             ),
           ),
 
-          // === Center content ===
+          // Center content
           Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
+              padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // orb
+                  /// orb
                   Image.asset(
                     BImages.bogoAi,
-                    width: 180,
-                    height: 180,
+                    width: screenWidth * 0.45,
+                    height: screenWidth * 0.45,
                     fit: BoxFit.contain,
                   ),
-                  const SizedBox(height: 55),
+                  SizedBox(height: screenHeight * 0.06),
 
                   // text + logo
-                  Padding(
-                    padding: const EdgeInsets.only(left: 45),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              "Hi I am ",
-                              style: BAppStyles.poppins(
-                                color: BAppColors.white,
-                                fontSize: BSizes.fontSizeLgx,
-                                weight: FontWeight.w800,
-                              ),
-                            ),
-                            Image.asset(
-                              BImages.appLogo,
-                              height: 70,
-                              fit: BoxFit.contain,
-                            ),
-                          ],
-                        ),
-                        Text(
-                          "Your Voice Assistant",
-                          style: BAppStyles.poppins(
-                            color: BAppColors.white.withOpacity(0.8),
-                            fontSize: BSizes.fontSizeLg,
-                            weight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
+                  BogoIntroText(
+                    title: "Hi I am ",
+                    subtitle: "Your Voice Assistant",
                   ),
 
-                  const SizedBox(height: 60),
+                  SizedBox(height: screenHeight * 0.07),
 
                   // start button with glow
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: BAppColors.main.withOpacity(0.6),
-                          blurRadius: 50,
-                          spreadRadius: 6,
-                        ),
-                      ],
-                    ),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(32),
-                      onTap: () {},
-                      child: Container(
-                        width: 92,
-                        height: 92,
-                        decoration: BoxDecoration(
-                          color: BAppColors.main,
-                          borderRadius: BorderRadius.circular(28),
-                        ),
-                        alignment: Alignment.center,
-                        child: Icon(Icons.chevron_right,
-                            color: BAppColors.white, size: 36),
-                      ),
-                    ),
+                  BogoGlowButton(
+                    size: screenWidth * 0.22,
+                    onTap: () {
+                      // navigate or action
+                    },
                   ),
                 ],
               ),

@@ -100,25 +100,25 @@ class BogoBottomNavBar extends StatelessWidget {
                       ),
                     ),
 
-                    // Shadow under indicator
-                    AnimatedPositioned(
-                      duration: const Duration(milliseconds: 260),
-                      curve: Curves.easeInOut,
-                      top: indicatorTop + r + 6,
-                      left: targetCenterX - r,
-                      child: IgnorePointer(
-                        child: Container(
-                          width: indicatorDiameter,
-                          height: r * 0.6,
-                          decoration: const BoxDecoration(
-                            color: Color(0x33000000),
-                            borderRadius: BorderRadius.all(
-                              Radius.elliptical(56, 18),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // // Shadow under indicator
+                    // AnimatedPositioned(
+                    //   duration: const Duration(milliseconds: 260),
+                    //   curve: Curves.easeInOut,
+                    //   top: indicatorTop + r + 6,
+                    //   left: targetCenterX - r,
+                    //   child: IgnorePointer(
+                    //     child: Container(
+                    //       width: indicatorDiameter,
+                    //       height: r * 0.6,
+                    //       decoration: const BoxDecoration(
+                    //         color: Color(0x33000000),
+                    //         borderRadius: BorderRadius.all(
+                    //           Radius.elliptical(56, 18),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
 
                     // Floating indicator with selected icon
                     AnimatedPositioned(

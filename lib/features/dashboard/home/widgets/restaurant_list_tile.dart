@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart'; // BAppColors
-import '../../../../core/utils/constants/app_sizes.dart'; // BSizes
-import '../../../../core/utils/constants/app_styles.dart'; // BAppStyles
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 
 class RestaurantListTile extends StatefulWidget {
   final String imageAsset;
   final String title;
-  final String distance; // e.g., "5.2KM"
-  final String country; // e.g., "Afghanistan"
-  final String rating; // e.g., "4.2"
-  final String ratingCount; // e.g., "55"
-  final String xp; // e.g., "300"
+  final String distance;
+  final String country;
+  final String rating;
+  final String ratingCount;
+  final String xp;
   final bool initiallyFavorited;
-  final bool showClosedOverlay; // optional “Close” on image
+  final bool showClosedOverlay;
 
   const RestaurantListTile({
     super.key,
@@ -43,14 +43,14 @@ class _RestaurantListTileState extends State<RestaurantListTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10), // list breathing
+      padding: const EdgeInsets.symmetric(vertical: 10),
       color: Colors.transparent,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // image thumb
+          // Thumbnail
           ClipRRect(
-            borderRadius: BorderRadius.circular(35), // big round like mock
+            borderRadius: BorderRadius.circular(35),
             child: Stack(
               children: [
                 Image.asset(
@@ -77,36 +77,50 @@ class _RestaurantListTileState extends State<RestaurantListTile> {
               ],
             ),
           ),
-
           const SizedBox(width: 14),
 
-          // middle content
+          // Content + fav button
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // title
-                  Text(
-                    widget.title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: BAppStyles.poppins(
-                      color: BAppColors.black1000,
-                      fontSize: BSizes.lg,
-                      weight: FontWeight.w700,
-                    ),
+                  // Title + Favorite button
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          widget.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: BAppStyles.poppins(
+                            color: BAppColors.black1000,
+                            fontSize: BSizes.lg,
+                            weight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                      InkResponse(
+                        onTap: () => setState(() => _fav = !_fav),
+                        radius: 24,
+                        child: Icon(
+                          _fav ? Icons.favorite : Icons.favorite_border,
+                          size: 26,
+                          color: BAppColors.black900,
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 5),
 
-                  // location row
+                  // Location
                   Row(
                     children: [
                       Icon(Icons.location_on,
                           size: 16, color: BAppColors.black700),
                       const SizedBox(width: 6),
-                      Flexible(
+                      Expanded(
                         child: Text(
                           "${widget.distance}  ${widget.country}",
                           maxLines: 1,
@@ -120,76 +134,71 @@ class _RestaurantListTileState extends State<RestaurantListTile> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 5),
 
-                  // rating row
+                  // Rating
                   Row(
                     children: [
                       Icon(Icons.star_rounded,
                           size: 16, color: BAppColors.black700),
                       const SizedBox(width: 6),
-                      Text(
-                        "${widget.rating} (${widget.ratingCount})",
-                        style: BAppStyles.poppins(
-                          color: BAppColors.black700,
-                          fontSize: BSizes.iconSm,
-                          weight: FontWeight.w600,
+                      Expanded(
+                        child: Text(
+                          "${widget.rating} (${widget.ratingCount})",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: BAppStyles.poppins(
+                            color: BAppColors.black700,
+                            fontSize: BSizes.iconSm,
+                            weight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 6),
 
                   // XP chip
-                  Container(
-                    width: 91,
-                    height: 26,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    decoration: BoxDecoration(
-                      color: BAppColors.yellow900, // warm yellow chip
-                      borderRadius: BorderRadius.circular(22),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color(0x22000000),
-                          blurRadius: 12,
-                          offset: Offset(0, 6),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        // small icon (using emoji_events as generic XP/trophy)
-                        Icon(Icons.emoji_events_rounded,
-                            size: 16, color: BAppColors.white),
-                        const SizedBox(width: 6),
-                        Text(
-                          "${widget.xp} XP",
-                          style: BAppStyles.poppins(
-                            color: BAppColors.white,
-                            fontSize: BSizes.fontSizeSm,
-                            weight: FontWeight.w700,
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: BAppColors.yellow900,
+                        borderRadius: BorderRadius.circular(22),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0x22000000),
+                            blurRadius: 12,
+                            offset: Offset(0, 6),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.emoji_events_rounded,
+                              size: 16, color: BAppColors.white),
+                          const SizedBox(width: 6),
+                          Flexible(
+                            child: Text(
+                              "${widget.xp} XP",
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: BAppStyles.poppins(
+                                color: BAppColors.white,
+                                fontSize: BSizes.fontSizeSm,
+                                weight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-          ),
-
-          const SizedBox(width: 10),
-
-          // favorite icon on the right
-          InkResponse(
-            onTap: () => setState(() => _fav = !_fav),
-            radius: 24,
-            child: Icon(
-              _fav ? Icons.favorite : Icons.favorite_border,
-              size: 26,
-              color: BAppColors.black900,
             ),
           ),
         ],

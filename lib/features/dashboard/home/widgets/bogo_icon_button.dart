@@ -10,8 +10,8 @@ class BogoIconButton extends StatelessWidget {
   const BogoIconButton({
     super.key,
     required this.assetPath,
-    this.size = 92,
-    this.borderRadius = 35,
+    this.size = 64,
+    this.borderRadius = 25,
     this.backgroundColor = Colors.black,
     this.onTap,
   });

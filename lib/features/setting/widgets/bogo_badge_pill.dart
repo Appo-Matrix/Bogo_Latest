@@ -34,15 +34,13 @@ class BogoBadgePill extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(radius),
       child: Container(
-        width: 118,
-        height: 62,
+        height: height,
         padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
         decoration: BoxDecoration(
           color: pillColor ?? BAppColors.black900,
           borderRadius: BorderRadius.circular(radius),
         ),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               width: 42,
@@ -54,13 +52,17 @@ class BogoBadgePill extends StatelessWidget {
               padding: EdgeInsets.all(iconSide * 0.16),
               child: Image.asset(asset, fit: BoxFit.contain),
             ),
-            SizedBox(width: 8),
-            Text(
-              label,
-              style: BAppStyles.poppins(
-                color: textColor ?? Colors.white,
-                fontSize: 12,
-                weight: FontWeight.w800,
+            const SizedBox(width: 8),
+            Flexible(
+              child: Text(
+                label,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: BAppStyles.poppins(
+                  color: textColor ?? Colors.white,
+                  fontSize: 12,
+                  weight: FontWeight.w800,
+                ),
               ),
             ),
           ],
