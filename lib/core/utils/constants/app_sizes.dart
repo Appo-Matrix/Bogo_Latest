@@ -29,12 +29,14 @@ class BSizes {
   static const double fontSizeLg = 18.0; // 18
   static const double buttonHeight = 18.0; // 18
   static const double cardElevation = 2.0; // Already sorted
+  static const double size20 = 20.0; // 24
   static const double lg = 24.0; // 24
   static const double xl = 24.0; // 24
   static const double iconMd = 24.0; // 24
   static const double defaultSpace = 24.0; // 24
   static const double fontSizeLgx = 24.0; // 24
   static const double iconLg = 32.0; // 32
+  static const double size35 = 35.0; // 32
   static const double spaceBtwSections = 32.0; // 32
   static const double fontSizeLhx = 30.0; // 30
   static const double fontSizeLIx = 44.0; // 44

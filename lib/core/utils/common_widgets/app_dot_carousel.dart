@@ -1,17 +1,17 @@
 import 'package:bogo_latest/core/utils/common_widgets/app_buttons.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:bogo_latest/features/dashboard/widgets/location_info.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_svg/svg.dart';
 
 /// Data model for each carousel slide
 class CarouselSlide {
   final String carouselImage;
   final String? leadingImage;
+  final double? rating;
   final String title;
   final double distance;
   final String location;
@@ -21,6 +21,7 @@ class CarouselSlide {
   const CarouselSlide({
     required this.carouselImage,
     this.leadingImage,
+    this.rating,
     required this.onFavourite,
     required this.title,
     required this.distance,
@@ -88,7 +89,7 @@ class _AppDotCarouselState extends State<AppDotCarousel> {
                             onTap: slide.onFavourite,
                           ),
                         )),
-                    if (widget.showRating) AppSpacers.v10,
+                    if (widget.showRating) SizedBox(height: BSizes.cardRadiusSm,),
                     if (widget.showRating)
                       Align(
                           alignment: Alignment.topRight,
@@ -96,7 +97,7 @@ class _AppDotCarouselState extends State<AppDotCarousel> {
                             padding: const EdgeInsets.only(right: 10),
                             child: AppButtons.backBlur(
                               imageIcon: "assets/icons/rating.svg",
-                              buttonText: "4.2",
+                              buttonText: widget.showRating?"${slide.rating}":null,
                               height: 25,
                               isBackGTransparent: true,
                               blurScale: 12,
@@ -125,7 +126,7 @@ class _AppDotCarouselState extends State<AppDotCarousel> {
                                     child: LocationInfo(
                                         imageColor: BAppColors.white,
                                         fontColor: BAppColors.white,
-                                        distance: "${slide.distance}\KM",
+                                        distance: "${slide.distance}KM",
                                         location: slide.location)),
                               ),
                             ),

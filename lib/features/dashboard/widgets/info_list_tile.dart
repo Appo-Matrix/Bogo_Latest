@@ -1,8 +1,8 @@
 import 'package:bogo_latest/core/utils/common_widgets/notch_clippers.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:bogo_latest/core/utils/common_widgets/app_buttons.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:bogo_latest/features/dashboard/widgets/location_info.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -75,35 +75,47 @@ class _InfoListTile extends StatelessWidget {
                   ),
                   subtitle: Column(
                     children: [
-                      AppSpacers.v10,
+                      SizedBox(
+                        height: BSizes.cardRadiusSm,
+                      ),
                       Center(
                         child: LocationInfo(
-                          distance: "${infoItems.distance}\KM",
+                          distance: "${infoItems.distance}KM",
                           location: infoItems.location,
                           fontColor: BAppColors.lightGray400,
                         ),
                       ),
-                      AppSpacers.v10,
+                      SizedBox(
+                        height: BSizes.cardRadiusSm,
+                      ),
                       Row(
                         children: [
                           SvgPicture.asset(
                             "assets/icons/rating.svg",
                             color: BAppColors.lightGray600,
                           ),
-                          AppSpacers.h10,
+                          SizedBox(
+                            width: BSizes.cardRadiusSm,
+                          ),
                           Text(
                             "${infoItems.rating}",
                             style: BAppStyles.body,
                           ),
-                          AppSpacers.h10,
+                          SizedBox(
+                            width: BSizes.cardRadiusSm,
+                          ),
                           Text("(${infoItems.views})", style: BAppStyles.body)
                         ],
                       ),
-                      AppSpacers.v10,
+                      SizedBox(
+                        height: BSizes.cardRadiusSm,
+                      ),
                       Row(
                         children: [
                           _notchContainer(infoItems.notch1),
-                          AppSpacers.h10,
+                          SizedBox(
+                            width: BSizes.cardRadiusSm,
+                          ),
                           _notchContainer(infoItems.notch2),
                         ],
                       )
@@ -114,12 +126,12 @@ class _InfoListTile extends StatelessWidget {
             ],
           ),
           Align(
-            alignment: Alignment.centerRight,
+            alignment: Alignment.topRight,
             child: AppButtons.backBlur(
-                imageIcon: "assets/icons/favourite_outlined.svg",
+                imageIcon: Icons.favorite_border,
                 imageColor: BAppColors.black1000,
                 imageSize: 30,
-                blurScale: 0,
+                blurScale: 12,
                 isBackGTransparent: true,
                 onTap: infoItems.onFavourite),
           )

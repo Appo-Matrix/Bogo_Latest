@@ -1,5 +1,5 @@
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -32,7 +32,9 @@ class ProfileListTile extends StatelessWidget {
       subtitle: Row(
         children: [
           SvgPicture.asset(typeImagePath),
-          AppSpacers.h10,
+          SizedBox(
+            width: BSizes.cardRadiusSm,
+          ),
           Text(
             accountType,
             style: BAppStyles.poppins(

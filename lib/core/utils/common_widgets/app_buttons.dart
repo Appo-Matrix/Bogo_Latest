@@ -1,8 +1,6 @@
 import 'dart:ui';
-
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -163,7 +161,10 @@ class _AppButtonsState extends State<AppButtons> {
                                 : widget.imageColor,
                           ),
                   ),
-                  if (widget.buttonText != null) AppSpacers.h5,
+                  if (widget.buttonText != null)
+                    SizedBox(
+                      width: BSizes.size5,
+                    ),
                   if (widget.buttonText != null)
                     Text(widget.buttonText!,
                         style:
@@ -207,7 +208,7 @@ class _AppButtonsState extends State<AppButtons> {
                           ),
                   ),
                 ),
-              AppSpacers.h5,
+              SizedBox(width: BSizes.size5),
               Text(
                 widget.buttonText!,
                 style: BAppStyles.poppins(
@@ -536,7 +537,7 @@ class _DragButtonState extends State<DragButton> {
                   child: _activated
                       ? const Icon(Icons.check, color: Colors.white, size: 32)
                       : const Icon(Icons.arrow_forward_ios,
-                      color: Colors.white, size: 24),
+                          color: Colors.white, size: 24),
                 ),
               ),
             ),

@@ -1,7 +1,7 @@
 import 'package:bogo_latest/core/utils/common_widgets/app_scaffold.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/features/dashboard/widgets/notification_alert.dart';
 import 'package:bogo_latest/features/dashboard/widgets/offer_card_widget.dart';
@@ -71,7 +71,7 @@ class OffersScreen extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: NotificationAlert(description: AppStrings.offerDesc),
             ),
-            AppSpacers.v20,
+            SizedBox(height: BSizes.size20),
             OfferItemsList(items: items)
           ],
         ),

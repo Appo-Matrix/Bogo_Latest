@@ -1,8 +1,8 @@
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:bogo_latest/core/utils/common_widgets/app_buttons.dart';
 import 'package:bogo_latest/core/utils/common_widgets/notch_clippers.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -159,7 +159,9 @@ class _OfferCardWidget extends StatelessWidget {
                             style: _textStyle(11, FontWeight.w400),
                           ),
                         ),
-                        AppSpacers.v10,
+                        SizedBox(
+                          height: BSizes.cardRadiusSm,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [

@@ -1,11 +1,10 @@
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:dotted_line_flutter/dotted_line_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:bogo_latest/core/utils/common_widgets/notch_clippers.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
-import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -35,7 +34,8 @@ class SubscribedOfferInfo extends StatelessWidget {
       required this.adultCount,
       required this.childCount,
       required this.roomCount,
-      super.key, required this.userMessage});
+      super.key,
+      required this.userMessage});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,9 @@ class SubscribedOfferInfo extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                AppSpacers.v35,
+                SizedBox(
+                  height: BSizes.size35,
+                ),
                 ClipPath(
                   clipper: DoubleVerticalMidNotchedClipper(),
                   child: Container(
@@ -85,7 +87,9 @@ class SubscribedOfferInfo extends StatelessWidget {
                     ),
                   ),
                 ),
-                AppSpacers.v20,
+                SizedBox(
+                  height: BSizes.size20,
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -144,7 +148,9 @@ class SubscribedOfferInfo extends StatelessWidget {
                                       weight: FontWeight.w400),
                                 )),
                           ),
-                          AppSpacers.v5,
+                          SizedBox(
+                            height: BSizes.size5,
+                          ),
                           Container(
                             height: 102,
                             width: 150,
@@ -193,7 +199,9 @@ class SubscribedOfferInfo extends StatelessWidget {
                 SizedBox(
                     height: 90,
                     child: Center(child: _dashedLines(BAppColors.white))),
-                AppSpacers.v10,
+                SizedBox(
+                  height: BSizes.cardRadiusSm,
+                ),
                 SizedBox(
                   height: 73,
                   width: 350,
@@ -222,12 +230,16 @@ Widget _customListTile(String imagePath, String title, int trailing) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
-      AppSpacers.h10,
+      SizedBox(
+        width: BSizes.cardRadiusSm,
+      ),
       SizedBox.square(
         dimension: 45,
         child: Center(child: Image.asset(imagePath)),
       ),
-      AppSpacers.h5,
+      SizedBox(
+        width: BSizes.size5,
+      ),
       Text(
         title,
         style: BAppStyles.body
@@ -239,7 +251,9 @@ Widget _customListTile(String imagePath, String title, int trailing) {
         style: BAppStyles.body
             .copyWith(fontWeight: FontWeight.w600, color: BAppColors.white),
       ),
-      AppSpacers.h20,
+      SizedBox(
+        width: BSizes.size20,
+      ),
     ],
   );
 }
@@ -278,7 +292,9 @@ Widget _dateContainer(String text) {
           ),
         ),
       ),
-      AppSpacers.h10,
+      SizedBox(
+        width: BSizes.cardRadiusSm,
+      ),
       Text(
         text,
         style: BAppStyles.poppins(

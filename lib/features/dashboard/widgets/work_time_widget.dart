@@ -1,7 +1,8 @@
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class WorkTimeItem {
   final String day;
@@ -36,11 +37,19 @@ class _WorkTime extends StatelessWidget {
   Widget _timeWidget(String time) {
     return Row(
       children: [
-        const Icon(Icons.access_time_filled, color: BAppColors.white, size: 21),
-        AppSpacers.h5,
+        SvgPicture.asset(
+          "assets/icons/time_icon.svg",
+          color: BAppColors.white,
+          height: 21,
+          width: 21,
+        ),
+        SizedBox(
+          width: BSizes.size5,
+        ),
         Text(
           time,
-          style: BAppStyles.poppins(color: BAppColors.white, fontSize: 16, weight: FontWeight.w400),
+          style: BAppStyles.poppins(
+              color: BAppColors.white, fontSize: 16, weight: FontWeight.w400),
         ),
       ],
     );
@@ -63,7 +72,10 @@ class _WorkTime extends StatelessWidget {
             padding: const EdgeInsets.only(left: 30),
             child: Text(
               workTimeItem.day,
-              style: BAppStyles.poppins(color: BAppColors.white, fontSize: 14, weight: FontWeight.w600),
+              style: BAppStyles.poppins(
+                  color: BAppColors.white,
+                  fontSize: 14,
+                  weight: FontWeight.w600),
             ),
           ),
           Align(
@@ -80,7 +92,8 @@ class _WorkTime extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     _timeWidget(workTimeItem.startTime),
-                    const Text(".....", style: TextStyle(color: BAppColors.white)),
+                    const Text(".....",
+                        style: TextStyle(color: BAppColors.white)),
                     _timeWidget(workTimeItem.endTime),
                   ],
                 ),

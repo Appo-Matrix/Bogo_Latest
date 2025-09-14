@@ -1,6 +1,6 @@
 import 'package:bogo_latest/core/utils/common_widgets/notch_clippers.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:dotted_line_flutter/dotted_line_flutter.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +53,9 @@ class SubscribingOfferDetails extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                AppSpacers.h35,
+                SizedBox(
+                  width: BSizes.size35,
+                ),
                 Text(
                   roomType,
                   style: BAppStyles.poppins(
@@ -81,7 +83,9 @@ class SubscribingOfferDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    AppSpacers.h35,
+                    SizedBox(
+                      width: BSizes.size35,
+                    ),
                     Text(
                       "Price",
                       style: BAppStyles.poppins(
@@ -97,7 +101,9 @@ class SubscribingOfferDetails extends StatelessWidget {
                           fontSize: 15,
                           weight: FontWeight.w400),
                     ),
-                    AppSpacers.h35,
+                    SizedBox(
+                      width: BSizes.size35,
+                    ),
                   ],
                 ),
               ),
@@ -107,7 +113,9 @@ class SubscribingOfferDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    AppSpacers.h35,
+                    SizedBox(
+                      width: BSizes.size35,
+                    ),
                     Text(
                       "Discount",
                       style: BAppStyles.poppins(
@@ -123,7 +131,9 @@ class SubscribingOfferDetails extends StatelessWidget {
                           fontSize: 15,
                           weight: FontWeight.w400),
                     ),
-                    AppSpacers.h35,
+                    SizedBox(
+                      width: BSizes.size35,
+                    ),
                   ],
                 ),
               ),
@@ -143,7 +153,9 @@ class SubscribingOfferDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    AppSpacers.h35,
+                    SizedBox(
+                      width: BSizes.size35,
+                    ),
                     Text(
                       "Total amount ",
                       style: BAppStyles.poppins(
@@ -159,7 +171,9 @@ class SubscribingOfferDetails extends StatelessWidget {
                           fontSize: 16,
                           weight: FontWeight.w700),
                     ),
-                    AppSpacers.h35,
+                    SizedBox(
+                      width: BSizes.size35,
+                    ),
                   ],
                 ),
               ),

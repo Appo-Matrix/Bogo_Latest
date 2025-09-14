@@ -2,7 +2,7 @@ import 'package:bogo_latest/core/utils/common_widgets/app_buttons.dart';
 import 'package:bogo_latest/core/utils/common_widgets/app_scaffold.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/features/dashboard/widgets/subscribed_offer_info.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,9 @@ class OfferInfoScreen extends StatelessWidget {
       body: AppScreen(
           child: Column(
         children: [
-          AppSpacers.v20,
+          SizedBox(
+            height: BSizes.size20,
+          ),
           SubscribedOfferInfo(
               initialDate: "18/06/2023",
               endDate: "18/06/2023",
@@ -34,7 +36,9 @@ class OfferInfoScreen extends StatelessWidget {
               adultCount: 1,
               childCount: 1,
               roomCount: 1),
-          AppSpacers.v30,
+          SizedBox(
+            height: BSizes.fontSizeLhx,
+          ),
           DragButton(text: "Activate the offer", onActivated: () {})
         ],
       )),

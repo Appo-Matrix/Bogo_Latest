@@ -5,7 +5,7 @@ import 'package:bogo_latest/features/auth/screens/otp/otp_verification_screen.da
 import 'package:bogo_latest/features/onboarding/onboarding_screen.dart';
 import 'package:bogo_latest/features/auth/screens/register_complete/register_complete_screen.dart';
 import 'package:bogo_latest/features/dashboard/home/home_screen.dart';
-import 'package:bogo_latest/features/dashboard/home/home_screen2.dart';
+import 'package:bogo_latest/features/dashboard/home/item_detail_screen.dart';
 import 'package:bogo_latest/features/dashboard/offers/offer_info_screen.dart';
 import 'package:bogo_latest/features/dashboard/offers/offers_screen.dart';
 import 'package:bogo_latest/features/dashboard/profile/offer_otp_screen.dart';
@@ -83,9 +83,9 @@ class AppRouter {
             NavigationHelper.slideFromRight(const HomeScreen(), state),
       ),
       GoRoute(
-        path: '/homeScreen2',
+        path: '/itemDetailScreen',
         pageBuilder: (context, state) =>
-            NavigationHelper.slideFromRight(const HomeScreen2(), state),
+            NavigationHelper.slideFromRight(const ItemDetailScreen(), state),
       ),
     ],
   );

@@ -5,15 +5,15 @@ import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/common_widgets/notch_clippers.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:dotted_line_flutter/dotted_line_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreen2 extends StatelessWidget {
-  const HomeScreen2({super.key});
+class ItemDetailScreen extends StatelessWidget {
+  const ItemDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,9 @@ class HomeScreen2 extends StatelessWidget {
       body: AppScreen(
           child: Column(
         children: [
-          AppSpacers.v20,
+          SizedBox(
+            height: BSizes.size20,
+          ),
           AppDotCarousel(
             slides: [
               CarouselSlide(
@@ -62,7 +64,9 @@ class HomeScreen2 extends StatelessWidget {
             SquareButtonItems(imageIcons: BImages.read, onTap: () {}),
             SquareButtonItems(imageIcons: BImages.call, onTap: () {}),
           ]),
-          AppSpacers.v10,
+          SizedBox(
+            height: BSizes.size20,
+          ),
           Row(
             children: [
               SvgPicture.asset(
@@ -70,7 +74,9 @@ class HomeScreen2 extends StatelessWidget {
                 width: 24,
                 height: 24,
               ),
-              AppSpacers.h10,
+              SizedBox(
+                width: BSizes.cardRadiusSm,
+              ),
               Text(
                 "Information",
                 style: BAppStyles.body.copyWith(
@@ -86,8 +92,9 @@ class HomeScreen2 extends StatelessWidget {
               style: BAppStyles.body,
             ),
           ),
-          AppSpacers.v90,
-          AppSpacers.v30,
+          SizedBox(
+            height: BSizes.buttonWidth,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -131,7 +138,9 @@ Widget _verticallyDottedNotchContainer2(String text) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          AppSpacers.h10,
+          SizedBox(
+            width: BSizes.cardRadiusSm,
+          ),
           DottedLine(
             axis: Axis.vertical,
             height: 55,
@@ -168,7 +177,9 @@ Widget _verticallyDottedNotchContainer2(String text) {
             colors: [BAppColors.lightGray400],
             dashGap: 4,
           ),
-          AppSpacers.h10
+          SizedBox(
+            width: BSizes.cardRadiusSm,
+          ),
         ],
       ),
     ),

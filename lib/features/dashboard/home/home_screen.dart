@@ -4,7 +4,7 @@ import 'package:bogo_latest/core/utils/common_widgets/app_scaffold.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_text_field.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
-import 'package:bogo_latest/core/utils/constants/app_spacers.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/features/dashboard/widgets/info_list_tile.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
       body: AppScreen(
         child: Column(
           children: [
-            AppSpacers.v10,
+            SizedBox(height: BSizes.size9 + 1),
             Row(
               children: [
                 Expanded(
@@ -32,14 +32,14 @@ class HomeScreen extends StatelessWidget {
                   hintText: AppStrings.searchHint,
                   prefixIcon: BImages.search,
                 )),
-                AppSpacers.h5,
+                SizedBox(width: BSizes.size5),
                 AppButtons.square(
                   imageIcon: BImages.filter,
                   onTap: () {},
                 ),
               ],
             ),
-            AppSpacers.v20,
+            SizedBox(height: BSizes.xl - 4),
             AppDotCarousel(slides: [
               CarouselSlide(
                   carouselImage: BImages.carousel1,
@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                   location: AppStrings.afghanistan,
                   onRate: () {})
             ], height: 177),
-            AppSpacers.v20,
+            SizedBox(height: BSizes.xl - 4),
             Center(
               child: SizedBox(
                 height: 120,
@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            AppSpacers.v20,
+            SizedBox(height: BSizes.xl - 4),
             InfoItemList(items: [
               InfoItems(
                   imagePath: BImages.hotel3,
@@ -123,7 +123,7 @@ class HomeScreen extends StatelessWidget {
                   notch1: "1=2",
                   notch2: "25%")
             ]),
-            AppSpacers.v90
+            SizedBox(height: BSizes.size90)
           ],
         ),
       ),
