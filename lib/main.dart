@@ -1,7 +1,6 @@
-import 'package:bogo_latest/features/setting/verification/camera_verification/screens/face_verification_screen.dart';
 import 'package:bogo_latest/theme/themes.dart';
 import 'package:flutter/material.dart';
-
+import 'features/dashboard/filter/filter_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,22 +11,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return MaterialApp.router(
+    //   title: 'Bogo',
+    //   debugShowCheckedModeBanner: false,
+    //   themeMode: ThemeMode.system,
+    //   theme: BAppTheme.lightTheme,
+    //   darkTheme: BAppTheme.darkTheme,
+    //   routerConfig: AppRouter.router,
+    // );
     return MaterialApp(
       title: 'Bogo',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: BAppTheme.lightTheme,
       darkTheme: BAppTheme.darkTheme,
-      home: FaceVerificationScreen(),
+      // routerConfig: AppRouter.router,
+      home: FilterScreen(),
     );
   }
 }
-
-// return MaterialApp.router(
-//   title: 'Bogo',
-//   debugShowCheckedModeBanner: false,
-//   themeMode: ThemeMode.system,
-//   theme: BAppTheme.lightTheme,
-//   darkTheme: BAppTheme.darkTheme,
-//   routerConfig: AppRouter.router,
-// );

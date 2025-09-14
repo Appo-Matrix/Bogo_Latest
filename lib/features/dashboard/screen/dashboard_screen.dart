@@ -47,7 +47,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BAppColors.white,
-      extendBody: true,
+      // extendBody: true,
       body: PageView(
         controller: _controller,
         onPageChanged: _onPageChanged,
@@ -58,7 +58,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         currentIndex: _currentIndex,
         onItemSelected: _onTap,
         barHeight: 92,
-        barWidth: 394,
+        // barWidth: 394,
         cornerRadius: 46,
         indicatorDiameter: 60,
         indicatorOverlap: 26,
