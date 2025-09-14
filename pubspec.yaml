@@ -29,6 +29,7 @@ dependencies:
 
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -40,6 +41,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/fonts/
     - assets/icons/
     - assets/fonts/
   fonts:

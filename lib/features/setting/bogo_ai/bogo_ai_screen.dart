@@ -1,8 +1,8 @@
+import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/features/setting/bogo_ai/widgets/bogo_glow_widget.dart';
 import 'package:bogo_latest/features/setting/bogo_ai/widgets/bogo_intro_text.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_assets.dart';
 
 class BogoAiScreen extends StatefulWidget {
   const BogoAiScreen({super.key});

@@ -1,9 +1,10 @@
+import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:bogo_latest/features/setting/about/about_screen.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_sizes.dart';
-import '../../../../core/utils/constants/app_styles.dart';
-import '../../../../core/utils/constants/app_assets.dart';
+
 import '../widgets/bogo_ai_badge.dart';
 import '../widgets/bogo_badge_pill.dart';
 import '../widgets/bogo_menu_item.dart';

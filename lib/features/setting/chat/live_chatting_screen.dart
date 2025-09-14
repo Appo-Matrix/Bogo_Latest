@@ -1,9 +1,10 @@
+import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:bogo_latest/features/setting/chat/widgets/chat_bubble.dart';
 import 'package:bogo_latest/features/setting/chat/widgets/chat_input_field.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_styles.dart';
-import '../../../../core/utils/constants/app_assets.dart';
+
 
 class LiveChattingScreen extends StatefulWidget {
   const LiveChattingScreen({super.key});

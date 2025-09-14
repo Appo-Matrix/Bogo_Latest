@@ -1,8 +1,9 @@
+import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:bogo_latest/features/setting/support/widgets/custom_action_bar.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_assets.dart';
-import '../../../../core/utils/constants/app_styles.dart';
+
 
 class SupportScreen extends StatefulWidget {
   const SupportScreen({super.key});

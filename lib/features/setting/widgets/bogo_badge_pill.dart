@@ -1,6 +1,7 @@
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_styles.dart';
-import '../../../../core/utils/constants/app_colors.dart';
+
 
 class BogoBadgePill extends StatelessWidget {
   const BogoBadgePill({

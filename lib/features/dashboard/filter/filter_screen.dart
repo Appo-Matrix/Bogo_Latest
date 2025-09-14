@@ -1,12 +1,13 @@
+import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:bogo_latest/features/dashboard/filter/widgets/category_grid.dart';
 import 'package:bogo_latest/features/dashboard/filter/widgets/location_drop_down.dart';
 import 'package:bogo_latest/features/dashboard/filter/widgets/price_chip.dart';
 import 'package:bogo_latest/features/dashboard/filter/widgets/rotated_label_column.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_sizes.dart';
-import '../../../../core/utils/constants/app_styles.dart';
-import '../../../../core/utils/constants/app_assets.dart';
+
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -28,6 +29,7 @@ class _FilterScreenState extends State<FilterScreen> {
     final isTablet = size.width >= 600;
 
     return Scaffold(
+      // 1) bg -> WHITE
       backgroundColor: BAppColors.white,
       body: SafeArea(
         child: Stack(
