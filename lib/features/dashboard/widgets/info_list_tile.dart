@@ -61,7 +61,7 @@ class _InfoListTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SizedBox.square(
-                dimension: 133,
+                dimension: 100,
                 child: Image.asset(infoItems.imagePath),
               ),
               Expanded(

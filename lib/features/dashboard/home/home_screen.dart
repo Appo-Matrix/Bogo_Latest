@@ -8,6 +8,7 @@ import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/features/dashboard/widgets/info_list_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,7 +20,11 @@ class HomeScreen extends StatelessWidget {
         leading: BImages.drawer,
         showLogo: true,
         showNotification: true,
-        trailingBorder: true,
+        trailingBorder: false,
+        onLeading: () {
+
+      context.push('/settingScreen');
+        },
       ),
       body: AppScreen(
         child: Column(
@@ -35,7 +40,9 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(width: BSizes.size5),
                 AppButtons.square(
                   imageIcon: BImages.filter,
-                  onTap: () {},
+                  onTap: () {
+                    context.push('/filterScreen');
+                  },
                 ),
               ],
             ),
@@ -72,7 +79,9 @@ class HomeScreen extends StatelessWidget {
                   child: FixedPositionAnimatedButtonList(items: [
                     FixedPositionAnimatedButtonItem(
                         imageIcon: BImages.pizza,
-                        onTap: () {},
+                        onTap: () {
+                          context.push('/offersScreen');
+                        },
                         textTitle: "restaurants"),
                     FixedPositionAnimatedButtonItem(
                         imageIcon: BImages.hotel,

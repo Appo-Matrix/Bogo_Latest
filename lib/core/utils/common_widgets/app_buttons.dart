@@ -287,7 +287,7 @@ class FixedPositionAnimatedButtonItem {
 }
 
 class _FixedSpecs {
-  static const double baseWidth = 92.0;
+  static const double baseWidth = 80.0;
   static const double baseHeight = 92.0;
   static const double expandedHeight = 125.0;
   static const double radius = 35.0;
