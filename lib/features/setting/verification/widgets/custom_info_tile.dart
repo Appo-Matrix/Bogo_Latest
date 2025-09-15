@@ -10,6 +10,8 @@ class CustomInfoTile extends StatelessWidget {
   final String title; // main text
   final String? subtitle; // optional subtitle
   final Widget? trailing; // optional trailing widget (chevron/edit/power)
+  final VoidCallback? onTileTap; // 👈 whole tile clickable
+  final VoidCallback? onTrailingTap; // 👈 only trailing clickable
 
   const CustomInfoTile({
     super.key,
@@ -19,67 +21,77 @@ class CustomInfoTile extends StatelessWidget {
     required this.title,
     this.subtitle,
     this.trailing,
+    this.onTileTap,
+    this.onTrailingTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(22),
-      ),
-      child: Row(
-        children: [
-          // Leading Icon
-          Container(
-            width: 56,
-            height: 56,
-            decoration: BoxDecoration(
-              color: iconBgColor,
-              borderRadius: BorderRadius.circular(18),
+    return GestureDetector(
+      onTap: onTileTap, // whole tile click
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(22),
+        ),
+        child: Row(
+          children: [
+            // Leading Icon
+            Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration(
+                color: iconBgColor,
+                borderRadius: BorderRadius.circular(18),
+              ),
+              alignment: Alignment.center,
+              child: leadingIcon,
             ),
-            alignment: Alignment.center,
-            child: leadingIcon,
-          ),
-          const SizedBox(width: 12),
+            const SizedBox(width: 12),
 
-          // Title + Subtitle
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: BAppStyles.poppins(
-                    color: BAppColors.white,
-                    fontSize: BSizes.fontSizeMd,
-                    weight: FontWeight.w800,
-                  ),
-                ),
-                if (subtitle != null) ...[
-                  const SizedBox(height: 2),
+            // Title + Subtitle
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Text(
-                    subtitle!,
+                    title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: BAppStyles.poppins(
-                      color: BAppColors.black300,
-                      fontSize: BSizes.fontSizeSm,
-                      weight: FontWeight.w600,
+                      color: BAppColors.white,
+                      fontSize: BSizes.fontSizeMd,
+                      weight: FontWeight.w800,
                     ),
                   ),
+                  if (subtitle != null) ...[
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitle!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: BAppStyles.poppins(
+                        color: BAppColors.black300,
+                        fontSize: BSizes.fontSizeSm,
+                        weight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
-          ),
 
-          // Trailing
-          if (trailing != null) trailing!,
-        ],
+            // Trailing (Clickable Separately)
+            if (trailing != null)
+              GestureDetector(
+                onTap: onTrailingTap, // only trailing clickable
+                behavior: HitTestBehavior.opaque,
+                child: trailing!,
+              ),
+          ],
+        ),
       ),
     );
   }

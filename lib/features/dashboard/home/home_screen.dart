@@ -123,7 +123,9 @@ class HomeScreen extends StatelessWidget {
                   notch2: "25%"),
               InfoItems(
                   imagePath: BImages.hotel3,
-                  onFavourite: () {},
+                  onFavourite: () {
+                    context.push('/itemDetailScreen');
+                  },
                   rating: 4.2,
                   title: AppStrings.hotelName,
                   distance: 5.2,
