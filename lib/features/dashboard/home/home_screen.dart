@@ -18,6 +18,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         leading: BImages.drawer,
+        leadingColor: Colors.black,
         showLogo: true,
         showNotification: true,
         trailingBorder: false,
@@ -41,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                 AppButtons.square(
                   imageIcon: BImages.filter,
                   onTap: () {
-                    context.push('/offersScreen');
+                    context.push('/filterScreen');
                   },
                 ),
               ],

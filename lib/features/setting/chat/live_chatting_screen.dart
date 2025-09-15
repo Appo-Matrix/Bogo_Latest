@@ -1,8 +1,10 @@
+import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:bogo_latest/features/setting/chat/widgets/chat_bubble.dart';
 import 'package:bogo_latest/features/setting/chat/widgets/chat_input_field.dart';
+import 'package:bogo_latest/features/setting/support/widgets/custom_action_bar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -28,49 +30,58 @@ class _LiveChattingScreenState extends State<LiveChattingScreen> {
 
     return Scaffold(
       backgroundColor: BAppColors.black1000,
+      appBar: CustomAppBar(
+        leading: Icons.arrow_back,
+        leadingColor: BAppColors.white,
+        title: "Profile",
+        trailing: BImages.profile,
+        isImage: true,
+        onLeading: () => Navigator.pop(context), // or context.pop()
+      ),
+
       body: SafeArea(
         child: Stack(
           children: [
             // App Bar
-            Positioned(
-              left: 8,
-              right: 8,
-              top: 0,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.arrow_back, color: BAppColors.white),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const Spacer(),
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(w * 0.01),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                              color: BAppColors.black700, width: w * 0.005),
-                        ),
-                        child: CircleAvatar(
-                          radius: w * 0.045,
-                          backgroundImage: AssetImage(BImages.profile),
-                        ),
-                      ),
-                      Positioned(
-                        right: 2,
-                        top: 2,
-                        child: CircleAvatar(
-                          backgroundColor: const Color(0xFF63E06E),
-                          radius: w * 0.015,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            // Positioned(
+            //   left: 8,
+            //   right: 8,
+            //   top: 0,
+            //   child: Row(
+            //     children: [
+            //       IconButton(
+            //         icon: Icon(Icons.arrow_back, color: BAppColors.white),
+            //         onPressed: () => Navigator.pop(context),
+            //       ),
+            //       const Spacer(),
+            //       Stack(
+            //         alignment: Alignment.center,
+            //         children: [
+            //           Container(
+            //             padding: EdgeInsets.all(w * 0.01),
+            //             decoration: BoxDecoration(
+            //               shape: BoxShape.circle,
+            //               border: Border.all(
+            //                   color: BAppColors.black700, width: w * 0.005),
+            //             ),
+            //             child: CircleAvatar(
+            //               radius: w * 0.045,
+            //               backgroundImage: AssetImage(BImages.profile),
+            //             ),
+            //           ),
+            //           Positioned(
+            //             right: 2,
+            //             top: 2,
+            //             child: CircleAvatar(
+            //               backgroundColor: const Color(0xFF63E06E),
+            //               radius: w * 0.015,
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
 
             // Messages
             Positioned.fill(
@@ -104,7 +115,7 @@ class _LiveChattingScreenState extends State<LiveChattingScreen> {
                           textAlign: TextAlign.center,
                           style: BAppStyles.poppins(
                             color: BAppColors.white,
-                            fontSize: w * 0.04,
+                            fontSize: 14,
                             weight: FontWeight.w700,
                           ),
                         ),

@@ -14,8 +14,10 @@ import 'package:bogo_latest/features/dashboard/offers/offers_screen.dart';
 import 'package:bogo_latest/features/dashboard/profile/offer_otp_screen.dart';
 import 'package:bogo_latest/features/dashboard/work_time/work_time_screen.dart';
 import 'package:bogo_latest/features/setting/about/about_screen.dart';
+import 'package:bogo_latest/features/setting/chat/live_chatting_screen.dart';
 import 'package:bogo_latest/features/setting/dashboard/setting_dashboard_screen.dart';
 import 'package:bogo_latest/features/setting/screen/setting_screen.dart';
+import 'package:bogo_latest/features/setting/support/support_screen.dart';
 import 'package:bogo_latest/features/setting/verification/camera_verification/screens/face_verification_screen.dart';
 import 'package:bogo_latest/features/setting/verification/camera_verification/screens/id_card_verification_screen.dart';
 import 'package:bogo_latest/features/setting/verification/camera_verification/screens/selfie_with_id_card_screen.dart';
@@ -80,6 +82,16 @@ class AppRouter {
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const AboutScreen(), state),
       ),
+      GoRoute(
+        path: '/supportScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const SupportScreen(), state),
+      ),
+      GoRoute(
+        path: '/liveChattingScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const LiveChattingScreen(), state),
+      ),
 
 
       GoRoute(
@@ -136,6 +148,11 @@ class AppRouter {
         path: '/settingScreen',
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const SettingScreen(), state),
+      ),
+      GoRoute(
+        path: '/filterScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const FilterScreen(), state),
       ),
       GoRoute(
         path: '/filterScreen',

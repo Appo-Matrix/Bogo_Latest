@@ -4,6 +4,7 @@ import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:bogo_latest/features/setting/about/about_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widgets/bogo_ai_badge.dart';
 import '../widgets/bogo_badge_pill.dart';
@@ -95,9 +96,13 @@ class _SettingScreenState extends State<SettingScreen> {
                   SizedBox(height: screenHeight * 0.02),
 
                   // Profile card
-                  const ProfileCard(
+                  ProfileCard(
                     name: "AVINASH KUMAR",
                     accountType: "PREMIUM ACCOUNT",
+                 onTap: (){
+                   context.push('/identityVerificationScreen');
+
+                 },
                   ),
 
                   SizedBox(height: screenHeight * 0.015),
@@ -141,12 +146,17 @@ class _SettingScreenState extends State<SettingScreen> {
                     BogoMenuItem(
                       icon: Icons.home_rounded,
                       title: "Dashboard",
-                      onTap: () {},
+                      onTap: () {
+                        context.push('/settingDashboardScreen');
+
+                      },
                     ),
                     BogoMenuItem(
                       icon: Icons.verified_user_rounded,
                       title: "Identity verification",
-                      onTap: () {},
+                      onTap: () {
+                        context.push('/faceVerificationScreen');
+                      },
                     ),
                     BogoMenuItem(
                       icon: Icons.language_rounded,
@@ -157,18 +167,16 @@ class _SettingScreenState extends State<SettingScreen> {
                       icon: Icons.info_rounded,
                       title: "About us",
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const AboutScreen(),
-                          ),
-                        );
+                       context.push('/aboutScreen');
                       },
                     ),
                     BogoMenuItem(
                       icon: Icons.chat_bubble_rounded,
                       title: "Contact us",
-                      onTap: () {},
+                      onTap: () {
+                        context.push('/supportScreen');
+
+                      },
                     ),
                     BogoMenuItem(
                       icon: Icons.power_settings_new_rounded,
