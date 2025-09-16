@@ -13,6 +13,7 @@ class InfoItems {
   final String notch1;
   final String notch2;
   final VoidCallback onFavourite;
+  final VoidCallback onTap; // 👈 new
   final double rating;
   final double distance;
   final String location;
@@ -21,6 +22,7 @@ class InfoItems {
   const InfoItems({
     required this.imagePath,
     required this.onFavourite,
+    required this.onTap, // 👈 new
     required this.rating,
     required this.title,
     required this.distance,
@@ -53,89 +55,79 @@ class _InfoListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
-      child: Stack(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox.square(
-                dimension: 100,
-                child: Image.asset(infoItems.imagePath),
-              ),
-              Expanded(
-                child: ListTile(
-                  title: Text(
-                    infoItems.title,
-                    style: BAppStyles.poppins(
-                        color: BAppColors.black1000,
-                        fontSize: 22,
-                        weight: FontWeight.w400),
-                  ),
-                  subtitle: Column(
-                    children: [
-                      SizedBox(
-                        height: BSizes.cardRadiusSm,
-                      ),
-                      Center(
-                        child: LocationInfo(
-                          distance: "${infoItems.distance}KM",
-                          location: infoItems.location,
-                          fontColor: BAppColors.lightGray400,
+    return InkWell(
+      onTap: infoItems.onTap, // 👈 whole card clickable
+      borderRadius: BorderRadius.circular(12), // ripple radius
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        child: Stack(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox.square(
+                  dimension: 100,
+                  child: Image.asset(infoItems.imagePath),
+                ),
+                Expanded(
+                  child: ListTile(
+                    title: Text(
+                      infoItems.title,
+                      style: BAppStyles.poppins(
+                          color: BAppColors.black1000,
+                          fontSize: 22,
+                          weight: FontWeight.w400),
+                    ),
+                    subtitle: Column(
+                      children: [
+                        SizedBox(height: BSizes.cardRadiusSm),
+                        Center(
+                          child: LocationInfo(
+                            distance: "${infoItems.distance}KM",
+                            location: infoItems.location,
+                            fontColor: BAppColors.lightGray400,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: BSizes.cardRadiusSm,
-                      ),
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            "assets/icons/rating.svg",
-                            color: BAppColors.lightGray600,
-                          ),
-                          SizedBox(
-                            width: BSizes.cardRadiusSm,
-                          ),
-                          Text(
-                            "${infoItems.rating}",
-                            style: BAppStyles.body,
-                          ),
-                          SizedBox(
-                            width: BSizes.cardRadiusSm,
-                          ),
-                          Text("(${infoItems.views})", style: BAppStyles.body)
-                        ],
-                      ),
-                      SizedBox(
-                        height: BSizes.cardRadiusSm,
-                      ),
-                      Row(
-                        children: [
-                          _notchContainer(infoItems.notch1),
-                          SizedBox(
-                            width: BSizes.cardRadiusSm,
-                          ),
-                          _notchContainer(infoItems.notch2),
-                        ],
-                      )
-                    ],
+                        SizedBox(height: BSizes.cardRadiusSm),
+                        Row(
+                          children: [
+                            SvgPicture.asset(
+                              "assets/icons/rating.svg",
+                              color: BAppColors.lightGray600,
+                            ),
+                            SizedBox(width: BSizes.cardRadiusSm),
+                            Text("${infoItems.rating}", style: BAppStyles.body),
+                            SizedBox(width: BSizes.cardRadiusSm),
+                            Text("(${infoItems.views})", style: BAppStyles.body),
+                          ],
+                        ),
+                        SizedBox(height: BSizes.cardRadiusSm),
+                        Row(
+                          children: [
+                            _notchContainer(infoItems.notch1),
+                            SizedBox(width: BSizes.cardRadiusSm),
+                            _notchContainer(infoItems.notch2),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.topRight,
-            child: AppButtons.backBlur(
+              ],
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: AppButtons.backBlur(
                 imageIcon: Icons.favorite_border,
                 imageColor: BAppColors.black1000,
                 imageSize: 30,
                 blurScale: 12,
                 isBackGTransparent: true,
-                onTap: infoItems.onFavourite),
-          )
-        ],
+                onTap: infoItems.onFavourite, // favourite still separate
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

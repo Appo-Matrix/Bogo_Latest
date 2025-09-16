@@ -23,8 +23,7 @@ class HomeScreen extends StatelessWidget {
         showNotification: true,
         trailingBorder: false,
         onLeading: () {
-
-      context.push('/settingScreen');
+          context.push('/settingScreen');
         },
       ),
       body: AppScreen(
@@ -80,8 +79,7 @@ class HomeScreen extends StatelessWidget {
                   child: FixedPositionAnimatedButtonList(items: [
                     FixedPositionAnimatedButtonItem(
                         imageIcon: BImages.pizza,
-                        onTap: () {
-                        },
+                        onTap: () {},
                         textTitle: "restaurants"),
                     FixedPositionAnimatedButtonItem(
                         imageIcon: BImages.hotel,
@@ -110,7 +108,10 @@ class HomeScreen extends StatelessWidget {
                   location: AppStrings.afghanistan,
                   views: 55,
                   notch1: "1=2",
-                  notch2: "25%"),
+                  notch2: "25%",
+                  onTap: () {
+                    context.push('/itemDetailScreen');
+                  }),
               InfoItems(
                   imagePath: BImages.hotel2,
                   onFavourite: () {},
@@ -120,19 +121,19 @@ class HomeScreen extends StatelessWidget {
                   location: AppStrings.afghanistan,
                   views: 55,
                   notch1: "1=2",
-                  notch2: "25%"),
+                  notch2: "25%",
+                  onTap: () {}),
               InfoItems(
                   imagePath: BImages.hotel3,
-                  onFavourite: () {
-                    context.push('/itemDetailScreen');
-                  },
+                  onFavourite: () {},
                   rating: 4.2,
                   title: AppStrings.hotelName,
                   distance: 5.2,
                   location: AppStrings.afghanistan,
                   views: 55,
                   notch1: "1=2",
-                  notch2: "25%")
+                  notch2: "25%",
+                  onTap: () {})
             ]),
             SizedBox(height: BSizes.size90)
           ],
