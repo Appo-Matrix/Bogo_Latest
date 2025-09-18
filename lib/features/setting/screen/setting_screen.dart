@@ -161,7 +161,9 @@ class _SettingScreenState extends State<SettingScreen> {
                     BogoMenuItem(
                       icon: Icons.language_rounded,
                       title: "Language",
-                      onTap: () {},
+                      onTap: () {
+                        context.push('/languageScreen');
+                      },
                     ),
                     BogoMenuItem(
                       icon: Icons.info_rounded,
@@ -189,7 +191,11 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
 
             // Bottom-left orb (fixed position, responsive)
-            const BogoAiBadge(),
+            BogoAiBadge(
+              onTap: () {
+                context.push('/bogoAiScreen');
+              },
+            ),
           ],
         ),
       ),

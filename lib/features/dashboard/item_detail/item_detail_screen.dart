@@ -8,6 +8,7 @@ import 'package:bogo_latest/features/dashboard/item_detail/widgets/reviews_secti
 import 'package:bogo_latest/features/dashboard/item_detail/widgets/store_slider.dart';
 import 'package:bogo_latest/features/dashboard/item_detail/widgets/tags_section.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ItemDetailScreen extends StatefulWidget {
   const ItemDetailScreen({super.key});
@@ -21,7 +22,6 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -37,20 +37,38 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
           const SizedBox(width: 12),
         ],
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: BSizes.sm),
         child: Column(
-          children:  [
+          children: [
             StoreSlider(),
             SizedBox(height: BSizes.spaceBtwSections),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ActionIcon(Icons.call, "Call"),
-                ActionIcon(Icons.chat, "Chat"),
-                ActionIcon(Icons.location_on, "Map"),
-                ActionIcon(Icons.share, "Share"),
+                ActionIcon(
+                  Icons.watch_later_outlined,
+                  "Call",
+                  onTap: () {
+                    context.push('/workTimeScreen');
+                  },
+                ),
+                ActionIcon(
+                  Icons.date_range_outlined,
+                  "Chat",
+                  onTap: () {
+                  },
+                ),
+                ActionIcon(
+                  Icons.location_on,
+                  "Map",
+                  onTap: () {},
+                ),
+                ActionIcon(
+                  Icons.call,
+                  "Share",
+                  onTap: () {},
+                ),
               ],
             ),
             SizedBox(height: BSizes.spaceBtwSections),
@@ -60,17 +78,19 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
             SizedBox(height: BSizes.spaceBtwSections),
             OffersSection(),
             SizedBox(height: BSizes.spaceBtwSections),
-             Row(
+            Row(
               children: [
                 Icon(Icons.location_on, color: Colors.black, size: 20),
                 SizedBox(width: 6),
                 Text(
                   "Map",
-                  style: BAppStyles.poppins(fontSize: 14, color: Colors.black54, weight: FontWeight.w600),
+                  style: BAppStyles.poppins(
+                      fontSize: 14,
+                      color: Colors.black54,
+                      weight: FontWeight.w600),
                 ),
               ],
             ),
-
             MapCard(),
             SizedBox(height: BSizes.spaceBtwSections),
             ReviewsSection(),

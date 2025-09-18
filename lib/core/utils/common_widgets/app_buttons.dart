@@ -481,7 +481,7 @@ class _DragButtonState extends State<DragButton> {
       height: height,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.circular(height / 2),
+        borderRadius: BorderRadius.circular(height / 1),
       ),
       child: Stack(
         alignment: Alignment.center,

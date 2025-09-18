@@ -4,6 +4,7 @@ import 'package:bogo_latest/features/auth/screens/login/login_screen.dart';
 import 'package:bogo_latest/features/auth/screens/otp/otp_verification_screen.dart';
 import 'package:bogo_latest/features/dashboard/filter/filter_screen.dart';
 import 'package:bogo_latest/features/dashboard/home/home_screen.dart';
+import 'package:bogo_latest/features/dashboard/home/language/language_screen.dart';
 import 'package:bogo_latest/features/dashboard/item_detail/item_detail_screen.dart';
 import 'package:bogo_latest/features/dashboard/screen/dashboard_screen.dart';
 import 'package:bogo_latest/features/onboarding/onboarding_screen.dart';
@@ -13,6 +14,7 @@ import 'package:bogo_latest/features/dashboard/offers/offers_screen.dart';
 import 'package:bogo_latest/features/dashboard/profile/offer_otp_screen.dart';
 import 'package:bogo_latest/features/dashboard/work_time/work_time_screen.dart';
 import 'package:bogo_latest/features/setting/about/about_screen.dart';
+import 'package:bogo_latest/features/setting/bogo_ai/bogo_ai_screen.dart';
 import 'package:bogo_latest/features/setting/chat/live_chatting_screen.dart';
 import 'package:bogo_latest/features/setting/dashboard/setting_dashboard_screen.dart';
 import 'package:bogo_latest/features/setting/screen/setting_screen.dart';
@@ -139,9 +141,19 @@ class AppRouter {
             NavigationHelper.slideFromRight(const SettingDashboardScreen(), state),
       ),
       GoRoute(
+        path: '/languageScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const LanguageScreen(), state),
+      ),
+      GoRoute(
         path: '/itemDetailScreen',
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const ItemDetailScreen(), state),
+      ),
+      GoRoute(
+        path: '/bogoAiScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const BogoAiScreen(), state),
       ),
       GoRoute(
         path: '/settingScreen',

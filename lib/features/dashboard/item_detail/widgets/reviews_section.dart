@@ -48,7 +48,7 @@ class _ReviewsSectionState extends State<ReviewsSection> {
               },
               child: Icon(
                 Icons.star,
-                size: 24,
+                size: 25,
                 color: _selectedRating >= starIndex ? Colors.amber : Colors.grey.shade300,
               ),
             );

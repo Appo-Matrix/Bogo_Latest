@@ -19,7 +19,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isImage;
   final VoidCallback? onNotification;
   final double height;
-  final Color leadingColor; // 👈 NEW PARAM
+  final Color leadingColor;
+  final Color titleColor; // 👈 NEW PARAM
 
   const CustomAppBar({
     this.height = BSizes.appBarHeight,
@@ -34,7 +35,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showLogo = false,
     this.trailingBorder = false,
     this.showNotification = false,
-    this.leadingColor = BAppColors.white, // 👈 default is white
+    this.leadingColor = BAppColors.white,
+    this.titleColor = BAppColors.black1000, // 👈 default black
     super.key,
   });
 
@@ -65,14 +67,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: leading is IconData
                       ? Icon(
                     leading,
-                    color: leadingColor, // 👈 uses param
+                    color: leadingColor,
                   )
                       : SizedBox(
                     height: 32,
                     width: 32,
                     child: SvgPicture.asset(
                       leading,
-                      color: leadingColor, // 👈 uses param
+                      color: leadingColor,
                     ),
                   ),
                 ),
@@ -85,7 +87,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               Text(
                 title!,
                 style: BAppStyles.poppins(
-                  color: BAppColors.black1000,
+                  color: titleColor, // 👈 Now dynamic
                   fontSize: 18,
                   weight: FontWeight.w700,
                 ),
@@ -105,8 +107,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
 
             /// 🔹 Trailing
-            if (trailing != null)
-              _buildTrailing(),
+            if (trailing != null) _buildTrailing(),
           ],
         )
             : Row(
@@ -129,14 +130,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: leading is IconData
                       ? Icon(
                     leading,
-                    color: leadingColor, // 👈 uses param
+                    color: leadingColor,
                   )
                       : SizedBox(
                     height: 32,
                     width: 32,
                     child: SvgPicture.asset(
                       leading,
-                      color: leadingColor, // 👈 uses param
+                      color: leadingColor,
                     ),
                   ),
                 ),

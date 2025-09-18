@@ -55,13 +55,11 @@ class _BogoAiScreenState extends State<BogoAiScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
+crossAxisAlignment: CrossAxisAlignment.center,                children: [
                   /// orb
                   Image.asset(
-                    BImages.bogoAi,
-                    width: screenWidth * 0.45,
-                    height: screenWidth * 0.45,
+                    BImages.bogoAiGif,
+
                     fit: BoxFit.contain,
                   ),
                   SizedBox(height: screenHeight * 0.06),

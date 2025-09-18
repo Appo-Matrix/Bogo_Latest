@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+
 class OfferCard extends StatelessWidget {
   final String offerText;
   final String count;
   final bool isActive;
   final double borderRadius;
+  final VoidCallback? onTap; // ✅ Added
 
   const OfferCard({
     super.key,
@@ -12,6 +14,7 @@ class OfferCard extends StatelessWidget {
     required this.count,
     this.isActive = true,
     this.borderRadius = 16,
+    this.onTap, // ✅ Added
   });
 
   @override
@@ -19,56 +22,63 @@ class OfferCard extends StatelessWidget {
     const cardWidth = 180.0;
     return ClipPath(
       clipper: TicketClipper(radius: borderRadius),
-      child: Container(
-        height: 92,
-        width: cardWidth,
+      child: Material( // ✅ Needed for ripple
         color: isActive ? Colors.black : Colors.grey.shade300,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Center(
-              child: Text(
-                offerText,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: isActive ? Colors.white : Colors.black54,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+        child: InkWell(
+          onTap: onTap, // ✅ Click action
+          child: SizedBox(
+            height: 92,
+            width: cardWidth,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Center(
+                  child: Text(
+                    offerText,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: isActive ? Colors.white : Colors.black54,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-
-            Positioned(
-              left: cardWidth * 0.2,
-              top: 0,
-              bottom: 0,
-              child: CustomPaint(
-                size: const Size(1, double.infinity),
-                painter: DashedLinePainter(color: isActive ? Colors.white : Colors.black54),
-              ),
-            ),
-            Positioned(
-              left: cardWidth * 0.8,
-              top: 0,
-              bottom: 0,
-              child: CustomPaint(
-                size: const Size(1, double.infinity),
-                painter: DashedLinePainter(color: isActive ? Colors.white : Colors.black54),
-              ),
-            ),
-
-            Positioned(
-              right: 10,
-              child: Text(
-                count,
-                style: TextStyle(
-                  color: isActive ? Colors.white : Colors.black54,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                Positioned(
+                  left: cardWidth * 0.2,
+                  top: 0,
+                  bottom: 0,
+                  child: CustomPaint(
+                    size: const Size(1, double.infinity),
+                    painter: DashedLinePainter(
+                      color: isActive ? Colors.white : Colors.black54,
+                    ),
+                  ),
                 ),
-              ),
+                Positioned(
+                  left: cardWidth * 0.8,
+                  top: 0,
+                  bottom: 0,
+                  child: CustomPaint(
+                    size: const Size(1, double.infinity),
+                    painter: DashedLinePainter(
+                      color: isActive ? Colors.white : Colors.black54,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 10,
+                  child: Text(
+                    count,
+                    style: TextStyle(
+                      color: isActive ? Colors.white : Colors.black54,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

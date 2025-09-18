@@ -6,11 +6,13 @@ import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 class BogoAiBadge extends StatelessWidget {
   final String title;
   final String imagePath;
+  final VoidCallback? onTap; // 👈 callback when tapped
 
   const BogoAiBadge({
     super.key,
     this.title = "BOGO",
     this.imagePath = BImages.bogoAi,
+    this.onTap,
   });
 
   @override
@@ -21,25 +23,28 @@ class BogoAiBadge extends StatelessWidget {
       alignment: Alignment.bottomLeft,
       child: SafeArea(
         minimum: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              imagePath,
-              width: screenWidth * 0.15,
-              height: screenWidth * 0.15,
-              fit: BoxFit.contain,
-            ),
-            const SizedBox(height: 6),
-            Text(
-              title,
-              style: BAppStyles.poppins(
-                color: BAppColors.white,
-                fontSize: screenWidth * 0.04,
-                weight: FontWeight.w800,
+        child: GestureDetector( // 👈 makes it clickable
+          onTap: onTap,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                imagePath,
+                width: screenWidth * 0.15,
+                height: screenWidth * 0.15,
+                fit: BoxFit.contain,
               ),
-            ),
-          ],
+              const SizedBox(height: 6),
+              Text(
+                title,
+                style: BAppStyles.poppins(
+                  color: BAppColors.white,
+                  fontSize: screenWidth * 0.04,
+                  weight: FontWeight.w800,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

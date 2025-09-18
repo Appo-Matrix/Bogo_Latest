@@ -122,7 +122,8 @@ class HomeScreen extends StatelessWidget {
                   views: 55,
                   notch1: "1=2",
                   notch2: "25%",
-                  onTap: () {}),
+                  onTap: () {
+                  }),
               InfoItems(
                   imagePath: BImages.hotel3,
                   onFavourite: () {},

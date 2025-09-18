@@ -18,6 +18,7 @@ class OfferOtpScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(
         showBack: true,
+        leadingColor: BAppColors.black1000,
         trailing: "assets/icons/scan.svg",
         trailingBorder: true,
       ),

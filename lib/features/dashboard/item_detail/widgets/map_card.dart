@@ -29,7 +29,6 @@ class _MapCardState extends State<MapCard> {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-
         Container(
           margin: const EdgeInsets.only(left: 60, top: 10),
           height: 189,

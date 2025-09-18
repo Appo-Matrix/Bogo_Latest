@@ -1,4 +1,5 @@
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/features/dashboard/widgets/work_time_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -26,11 +27,12 @@ class WorkTimeScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(
+        leadingColor: Colors.black,
         showBack: true,
         title: "Worktime",
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: BSizes.md),
         child: SingleChildScrollView(
           child: Column(
             children: [WorkTimeList(items: workItems)],
