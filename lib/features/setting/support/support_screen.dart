@@ -1,8 +1,12 @@
+import 'package:bogo_latest/core/utils/common/common_widgets/primary_button.dart';
+import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:bogo_latest/features/setting/support/widgets/custom_action_bar.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_assets.dart';
-import '../../../../core/utils/constants/app_styles.dart';
+import 'package:go_router/go_router.dart';
+
 
 class SupportScreen extends StatefulWidget {
   const SupportScreen({super.key});
@@ -30,7 +34,7 @@ class _SupportScreenState extends State<SupportScreen> {
 
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: screenW * 0.04),
+          padding: EdgeInsets.symmetric(horizontal: BSizes.md),
           child: Column(
             children: [
               // Illustration image responsive
@@ -40,47 +44,47 @@ class _SupportScreenState extends State<SupportScreen> {
                 height: screenH * 0.28,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: screenH * 0.07),
+              SizedBox(height: BSizes.size60,),
 
               // Support Options (inline)
               Text(
                 "Report a problem",
                 style: BAppStyles.poppins(
                   color: BAppColors.white,
-                  fontSize: screenW * 0.045,
+                  fontSize: 14,
                   weight: FontWeight.w600,
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: screenH * 0.05),
+              SizedBox(height: BSizes.spaceBtwSections,),
               Text(
                 "Report a violation",
                 style: BAppStyles.poppins(
                   color: BAppColors.white,
-                  fontSize: screenW * 0.045,
+                  fontSize: 14,
                   weight: FontWeight.w600,
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: screenH * 0.05),
+              SizedBox(height: BSizes.spaceBtwSections,),
               Text(
                 "Membership request",
                 style: BAppStyles.poppins(
                   color: BAppColors.white,
-                  fontSize: screenW * 0.045,
+                  fontSize: 14,
                   weight: FontWeight.w600,
                 ),
                 textAlign: TextAlign.center,
               ),
 
-              SizedBox(height: screenH * 0.035),
+              SizedBox(height: BSizes.spaceBtwSections,),
 
               // Query Button
               Container(
                 width: screenW * 0.5,
                 height: screenH * 0.07,
                 decoration: BoxDecoration(
-                  color: BAppColors.black900,
+                  color: BAppColors.black600,
                   borderRadius: BorderRadius.circular(24),
                 ),
                 alignment: Alignment.center,
@@ -88,31 +92,24 @@ class _SupportScreenState extends State<SupportScreen> {
                   "Query",
                   style: BAppStyles.poppins(
                     color: BAppColors.white,
-                    fontSize: screenW * 0.045,
+                    fontSize: 14,
                     weight: FontWeight.w600,
                   ),
                 ),
               ),
 
-              SizedBox(height: screenH * 0.07),
+SizedBox(height: BSizes.spaceBtwSections),
 
-              // Start live chat button
-              Container(
-                width: screenW * 0.85,
-                height: screenH * 0.1,
-                decoration: BoxDecoration(
-                  color: BAppColors.main,
-                  borderRadius: BorderRadius.circular(46),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  "Start live chat now",
-                  style: BAppStyles.poppins(
-                    color: BAppColors.white,
-                    fontSize: screenW * 0.05,
-                    weight: FontWeight.w700,
-                  ),
-                ),
+              PrimaryButton(
+                height: 92,
+                width: 336,
+                borderRadius: 46,
+                backgroundColor: BAppColors.buttonGreen,
+                text: 'Start Live Chat now',
+                onPressed: () {
+                  context.push('/liveChattingScreen');
+
+                },
               ),
 
               SizedBox(height: screenH * 0.03),

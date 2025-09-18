@@ -119,7 +119,7 @@ class _AppDotCarouselState extends State<AppDotCarousel> {
                                   slide.title,
                                   style: BAppStyles.poppins(
                                       color: BAppColors.white,
-                                      fontSize: 22,
+                                      fontSize: 20,
                                       weight: FontWeight.w500),
                                 ),
                                 subtitle: Center(
@@ -131,7 +131,7 @@ class _AppDotCarouselState extends State<AppDotCarousel> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 20, top: 30),
+                              padding: const EdgeInsets.only(right: 10, top: 30),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: List.generate(

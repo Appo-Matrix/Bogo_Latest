@@ -26,7 +26,6 @@ class BogoAboutFaqContent extends StatelessWidget {
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: BAppColors.black900,
                   borderRadius: BorderRadius.circular(18),
                 ),
                 padding: EdgeInsets.all(screenWidth * 0.045),
@@ -43,7 +42,7 @@ class BogoAboutFaqContent extends StatelessWidget {
                     color: BAppColors.white,
                     fontSize: screenWidth * 0.035,
                     weight: FontWeight.w600,
-                    height: 1.6,
+                    height: 3,
                   ),
                 ),
               ),
@@ -59,6 +58,9 @@ class BogoAboutFaqContent extends StatelessWidget {
                         color: BAppColors.white,
                         fontSize: screenWidth * 0.04,
                         weight: FontWeight.w600,
+                        height: 3,
+
+
                       ),
                     ),
                   );

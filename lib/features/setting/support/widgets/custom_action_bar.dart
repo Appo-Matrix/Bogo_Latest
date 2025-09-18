@@ -33,10 +33,11 @@ class CustomActionAppBar extends StatelessWidget
         const SizedBox(width: 8),
         _ActionIcon(
           icon: Icons.call,
+
           onTap: onCall,
         ),
         IconButton(
-          icon: Icon(Icons.more_vert, color: BAppColors.white, size: 45),
+          icon: Icon(Icons.more_vert, color: BAppColors.white, size: 26),
           onPressed: onMore,
         ),
         const SizedBox(width: 8),
@@ -63,21 +64,21 @@ class _ActionIcon extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 60,
-        height: 60,
+        width: 40,
+        height: 40,
         decoration: BoxDecoration(
           color: Colors.transparent,
           border: Border.all(
-            color: Colors.white,
+            color: Colors.white.withOpacity(0.2),
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(15),
         ),
         child: Center(
           child: Icon(
             icon,
             color: Colors.white,
-            size: 36,
+            size: 24,
           ),
         ),
       ),

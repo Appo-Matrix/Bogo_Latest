@@ -1,9 +1,10 @@
+import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
+import 'package:bogo_latest/core/utils/constants/app_styles.dart';
 import 'package:bogo_latest/features/setting/about/widgets/bogo_about_faq_content.dart';
 import 'package:bogo_latest/features/setting/about/widgets/bogo_pills_button.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_styles.dart';
-import '../../../../core/utils/constants/app_assets.dart';
+
 
 class AboutScreen extends StatefulWidget {
   const AboutScreen({super.key});
@@ -30,6 +31,7 @@ class _AboutScreenState extends State<AboutScreen> {
             children: [
               /// Back button + heading
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
                     icon: Icon(Icons.arrow_back, color: BAppColors.white),

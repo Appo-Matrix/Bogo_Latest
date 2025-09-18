@@ -131,7 +131,7 @@ class _AuthHomeScreenState extends State<AuthHomeScreen> {
                               containerColor: BAppColors.googleContainerColor,
                               textColor: Colors.white,
                               allowMultilineText: true,
-                              width: 250,
+                              width: 300,
                               height: 250,
                               borderRadius: 30,
                               iconSize: 52,

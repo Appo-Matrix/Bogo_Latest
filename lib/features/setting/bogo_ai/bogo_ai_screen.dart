@@ -1,8 +1,8 @@
+import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/features/setting/bogo_ai/widgets/bogo_glow_widget.dart';
 import 'package:bogo_latest/features/setting/bogo_ai/widgets/bogo_intro_text.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_assets.dart';
 
 class BogoAiScreen extends StatefulWidget {
   const BogoAiScreen({super.key});
@@ -55,13 +55,11 @@ class _BogoAiScreenState extends State<BogoAiScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
+crossAxisAlignment: CrossAxisAlignment.center,                children: [
                   /// orb
                   Image.asset(
-                    BImages.bogoAi,
-                    width: screenWidth * 0.45,
-                    height: screenWidth * 0.45,
+                    BImages.bogoAiGif,
+
                     fit: BoxFit.contain,
                   ),
                   SizedBox(height: screenHeight * 0.06),

@@ -175,7 +175,7 @@ class SubscribedOfferInfo extends StatelessWidget {
                     ),
                     Container(
                       height: 212,
-                      width: 176,
+                      width: 170,
                       decoration: BoxDecoration(
                           color: BAppColors.lightGray300,
                           borderRadius: BorderRadius.only(

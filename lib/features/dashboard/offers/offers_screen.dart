@@ -1,11 +1,13 @@
 import 'package:bogo_latest/core/utils/common_widgets/app_scaffold.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/features/dashboard/widgets/notification_alert.dart';
 import 'package:bogo_latest/features/dashboard/widgets/offer_card_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OffersScreen extends StatelessWidget {
   const OffersScreen({super.key});
@@ -23,7 +25,11 @@ class OffersScreen extends StatelessWidget {
           onFamilies: () {},
           onChildren: () {},
           onMore: () {},
-          onNext: () {}),
+          onNext: () {},
+        onTap: (){
+            context.push('/offerOtpScreen');
+        },
+      ),
       OfferItems(
           price: "5000 DA",
           leadingImage: BImages.hotel1,
@@ -56,12 +62,14 @@ class OffersScreen extends StatelessWidget {
           onFamilies: () {},
           onChildren: () {},
           onMore: () {},
-          onNext: () {}),
+          onNext: () {
+          }),
     ];
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(
         showBack: true,
+        leadingColor: BAppColors.black1000,
         title: "offers",
       ),
       body: AppScreen(

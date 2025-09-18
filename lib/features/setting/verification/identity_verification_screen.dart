@@ -99,7 +99,11 @@ class _IdentityVerificationScreenState
                     color: Colors.white, size: screenWidth * 0.07),
                 title: "Identity verification",
                 trailing: Icon(Icons.chevron_right,
+
                     color: Colors.white, size: screenWidth * 0.07),
+                onTrailingTap: () {
+                  debugPrint("Chevron clicked ✅");
+                },
               ),
               SizedBox(height: screenHeight * 0.015),
 
@@ -113,6 +117,9 @@ class _IdentityVerificationScreenState
                 subtitle: "abdouplaystor@gmail.com",
                 trailing: Icon(Icons.edit_outlined,
                     color: Colors.white, size: screenWidth * 0.055),
+                onTrailingTap: () {
+                  debugPrint("Chevron clicked ✅");
+                },
               ),
               SizedBox(height: screenHeight * 0.015),
 
@@ -126,6 +133,9 @@ class _IdentityVerificationScreenState
                 subtitle: "05555555555",
                 trailing: Icon(Icons.edit_outlined,
                     color: Colors.white, size: screenWidth * 0.055),
+                onTrailingTap: () {
+                  debugPrint("Chevron clicked ✅");
+                },
               ),
               SizedBox(height: screenHeight * 0.015),
 

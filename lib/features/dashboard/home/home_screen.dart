@@ -8,6 +8,7 @@ import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/features/dashboard/widgets/info_list_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,9 +18,13 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         leading: BImages.drawer,
+        leadingColor: Colors.black,
         showLogo: true,
         showNotification: true,
-        trailingBorder: true,
+        trailingBorder: false,
+        onLeading: () {
+          context.push('/settingScreen');
+        },
       ),
       body: AppScreen(
         child: Column(
@@ -35,7 +40,9 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(width: BSizes.size5),
                 AppButtons.square(
                   imageIcon: BImages.filter,
-                  onTap: () {},
+                  onTap: () {
+                    context.push('/filterScreen');
+                  },
                 ),
               ],
             ),
@@ -101,7 +108,10 @@ class HomeScreen extends StatelessWidget {
                   location: AppStrings.afghanistan,
                   views: 55,
                   notch1: "1=2",
-                  notch2: "25%"),
+                  notch2: "25%",
+                  onTap: () {
+                    context.push('/itemDetailScreen');
+                  }),
               InfoItems(
                   imagePath: BImages.hotel2,
                   onFavourite: () {},
@@ -111,7 +121,9 @@ class HomeScreen extends StatelessWidget {
                   location: AppStrings.afghanistan,
                   views: 55,
                   notch1: "1=2",
-                  notch2: "25%"),
+                  notch2: "25%",
+                  onTap: () {
+                  }),
               InfoItems(
                   imagePath: BImages.hotel3,
                   onFavourite: () {},
@@ -121,7 +133,8 @@ class HomeScreen extends StatelessWidget {
                   location: AppStrings.afghanistan,
                   views: 55,
                   notch1: "1=2",
-                  notch2: "25%")
+                  notch2: "25%",
+                  onTap: () {})
             ]),
             SizedBox(height: BSizes.size90)
           ],
