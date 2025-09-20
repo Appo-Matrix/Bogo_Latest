@@ -10,6 +10,7 @@ class BAppColors {
   static const Color googleContainerColor = Color(0xFF5F7EC9);
   static const Color facebookContainarColor = Color(0xFF3F51B2);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color purple1 = Color(0xFF5E35B1);
 
   // ✅ Existing Primary Green Shades
   static const Color lightest = Color(0xFFE6F3DB);

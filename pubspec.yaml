@@ -27,6 +27,7 @@ dependencies:
   permission_handler: ^12.0.1
   country_state_city_picker: ^1.2.8
   google_maps_flutter: ^2.4.2   # ✅ latest stable version (check pub.dev for updates)
+  smooth_page_indicator: ^1.1.0
 
 
 

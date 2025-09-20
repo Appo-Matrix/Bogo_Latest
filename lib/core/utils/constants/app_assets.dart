@@ -68,6 +68,9 @@ class BImages {
   static const String back = "assets/icons/back.svg";
   static const String notifications = "assets/icons/notifications.svg";
   static const String bogoAiGif = "assets/images/ai-bogo.gif";
+  static const String taskImage = "assets/images/task_image.png";
+  static const String rewardImage = "assets/images/reward_image.png";
+  static const String advertistmentImage = "assets/images/advertistment_image.png";
 // Store images
 
 
