@@ -12,8 +12,8 @@ class BImages {
   static const String logo = "assets/images/logo.png";
   static const String location = "assets/icons/location.svg";
 
-// Images
-//   static const String profile = "assets/images/active_profile.png";
+  // Images
+  // static const String profile = "assets/images/active_profile.png";
   static const String profile2 = "assets/images/profile_pic2.png";
   static const String hotel1 = "assets/images/hotel1.png";
   static const String hotel2 = "assets/images/hotel2.png";
@@ -23,6 +23,7 @@ class BImages {
   static const String carousel2 = "assets/images/carousel2.png";
 
   //Auth social icon
+
   static const String iphone = "assets/icons/iphone_icon.png";
   static const String google = "assets/icons/google_icon.png";
   static const String facebook = "assets/icons/facebook_icon.png";
@@ -31,10 +32,12 @@ class BImages {
   static const String phone = "assets/icons/Phone.png";
   static const String message= "assets/icons/Message.png";
   static const String card= "assets/icons/Card.png";
+
   static const String authProfileImage = "assets/icons/profile_image.png";
   static const String authBackground = "assets/images/auth.jpg";
   static const String completeScreen = "assets/images/complate-screen.png";
   static const String leadingIcon = "assets/icons/leadingIcon.png";
+  // static const String notification = "assets/icons/notificationIcon.png";
   static const String bottomHomeIcon = "assets/icons/navHomeWhite.png";
   static const String cards = "assets/images/card.png";
   static const String squareImage = "assets/images/squareImage.png";
@@ -51,7 +54,7 @@ class BImages {
   static const String emojiFace = "assets/icons/emojiFace.png";
   static const String sendTriangle = "assets/icons/sendTriangle.png";
   static const String phoneMock = "assets/images/phoneMock.png";
-// Icons
+  // Icons
   static const String search = "assets/icons/search.svg";
   static const String clock = "assets/icons/clock.svg";
   static const String read = "assets/icons/read.svg";
@@ -67,12 +70,23 @@ class BImages {
   static const String food = "assets/icons/food.svg";
   static const String back = "assets/icons/back.svg";
   static const String notifications = "assets/icons/notifications.svg";
-  static const String bogoAiGif = "assets/images/ai-bogo.gif";
 // Store images
 
 
-  // filter category images
-
-
+  // games screen
+  static const String ludo = "assets/images/ludo.png";
+  static const String dive = "assets/images/dive.png";
+  static const String dives1 = "assets/images/dive1.png";
+  static const String dives2 = "assets/images/dives2.png";
+  static const String profileDive = "assets/images/profileDive.png";
+  static const String searchAdd = "assets/icons/searchAdd.png";
+  static const String privacy = "assets/icons/privacy.png";
+  static const String gift = "assets/images/gift.png";
+  static const String share1 = "assets/icons/share1.png";
+  static const String ramada = "assets/images/ramada.png";
+  static const String cartoon = "assets/images/cartoon.png";
+  static const String winner = "assets/images/winner.png";
+  static const String loser = "assets/images/loser.png";
+  static const String loserAvatar = "assets/images/avatars.png";
 
 }

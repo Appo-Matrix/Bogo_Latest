@@ -1,8 +1,6 @@
-import 'package:bogo_latest/core/routes/app_routes.dart';
-import 'package:bogo_latest/features/setting/verification/camera_verification/screens/face_verification_screen.dart';
 import 'package:bogo_latest/theme/themes.dart';
 import 'package:flutter/material.dart';
-
+import 'core/routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
