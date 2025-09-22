@@ -22,6 +22,7 @@ class BAppColors {
   static const Color darkest = Color(0xFF4A6A29);
   static const Color deepest = Color(0xFF34481C);
   static const Color deeper = Color(0xFF8BC255);
+  static const Color deeper1 = Color(0xFF71E509);
 
   // ✅ Grays
   static const Color lightGray100 = Color(0xFFF2F4F7);

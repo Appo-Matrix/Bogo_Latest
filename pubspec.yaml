@@ -26,6 +26,8 @@ dependencies:
   camera: ^0.11.2
   permission_handler: ^12.0.1
   country_state_city_picker: ^1.2.8
+  card_swiper: ^3.0.1
+  intl: ^0.20.2
   google_maps_flutter: ^2.4.2   # ✅ latest stable version (check pub.dev for updates)
 
 

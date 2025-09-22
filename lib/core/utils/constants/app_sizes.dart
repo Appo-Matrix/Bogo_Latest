@@ -30,6 +30,7 @@ class BSizes {
   static const double buttonHeight = 18.0; // 18
   static const double cardElevation = 2.0; // Already sorted
   static const double size20 = 20.0; // 24
+  static const double size22 = 22.0; // 24
   static const double lg = 24.0; // 24
   static const double xl = 24.0; // 24
   static const double iconMd = 24.0; // 24

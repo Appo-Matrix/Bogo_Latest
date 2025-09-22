@@ -1,3 +1,4 @@
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import '../../constants/app_sizes.dart';
 import '../../constants/app_styles.dart';
@@ -62,9 +63,9 @@ class PrimaryButton extends StatelessWidget {
             text,
             textAlign: TextAlign.center,
             style: BAppStyles.poppins(
-              color: Colors.white,
-              fontSize: BSizes.lg,
-              weight: FontWeight.w400,
+              color: BAppColors.white,
+              fontSize: BSizes.size22,
+              weight: FontWeight.w600,
             ),
           ),
         ),
