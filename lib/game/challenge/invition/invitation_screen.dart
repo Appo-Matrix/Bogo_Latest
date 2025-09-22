@@ -59,7 +59,7 @@ class _InvitationScreenState extends State<InvitationScreen> {
                       top: -20,
                       left: -25,
                       child: Image.asset(
-                        BImages.dive,
+                        BImages.backgroundCh1,
                         height: 123,
                         width: 248,
                         fit: BoxFit.contain,

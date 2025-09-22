@@ -70,6 +70,15 @@ class BImages {
   static const String taskImage = "assets/images/task_image.png";
   static const String rewardImage = "assets/images/reward_image.png";
   static const String advertistmentImage = "assets/images/advertistment_image.png";
+  static const String bannerCh = "assets/images/ludo.png";
+  static const String backgroundCh1 = "assets/images/dive.png";
+  static const String backgroundCh2 = "assets/images/dive1.png";
+  static const String backgroundCh3 = "assets/images/dives2.png";
+  static const String profileFriend = "assets/images/profileDive.png";
+  static const String shareIcon = "assets/icons/share1.png";
+  static const String giftImage = "assets/images/gift.png";
+  static const String searchAddIcon = "assets/icons/searchAdd.png";
+  static const String privacyIcon = "assets/icons/privacy.png";
 // Store images
 
 
