@@ -1,4 +1,3 @@
-import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
