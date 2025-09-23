@@ -21,21 +21,25 @@ class AppButtons extends StatefulWidget {
   final Color? buttonColor;
   final Color? textColor;
   final double? fontSize;
+  final double? size;
   final bool isBackGTransparent;
   final String? buttonText;
 
   const AppButtons.square(
-      {required this.imageIcon, required this.onTap, super.key})
+      {required this.imageIcon,
+      this.size = 92,
+      this.fontSize = 13,
+      this.buttonText,
+      required this.onTap,
+      this.imageSize = BSizes.iconMd,
+      this.textColor = BAppColors.white,
+      this.buttonColor = BAppColors.black1000,
+      this.borderRadius = 35,
+      this.isBackGTransparent = false,
+      super.key})
       : type = Button.square,
         blurScale = null,
-        buttonText = null,
-        isBackGTransparent = false,
-        imageSize = null,
-        fontSize = null,
-        textColor = null,
-        buttonColor = null,
         height = null,
-        borderRadius = null,
         width = null,
         imageIconOnChange = null,
         imageColor = null;
@@ -54,6 +58,7 @@ class AppButtons extends StatefulWidget {
       : type = Button.backBlur,
         fontSize = null,
         width = null,
+        size = null,
         textColor = null,
         borderRadius = null,
         buttonColor = null;
@@ -72,6 +77,7 @@ class AppButtons extends StatefulWidget {
       : type = Button.smpButton,
         imageIconOnChange = null,
         blurScale = null,
+        size = null,
         imageSize = null,
         isBackGTransparent = false,
         imageColor = null;
@@ -99,24 +105,52 @@ class _AppButtonsState extends State<AppButtons> {
     return GestureDetector(
       onTap: widget.onTap,
       child: Container(
-        height: 92,
-        width: 92,
+        height: widget.size,
+        width: widget.size,
         decoration: BoxDecoration(
-          color: BAppColors.black1000,
-          borderRadius: BorderRadius.circular(35),
+          color: widget.isBackGTransparent
+              ? Colors.transparent
+              : widget.buttonColor,
+          borderRadius: BorderRadius.circular(widget.borderRadius!),
         ),
-        child: Center(
-          child: SizedBox(
-            height: BSizes.iconMd - 3,
-            width: BSizes.iconMd - 3,
-            child: widget.imageIcon is IconData
-                ? Icon(widget.imageIcon, color: BAppColors.white)
-                : SvgPicture.asset(
-                    widget.imageIcon,
-                    color: BAppColors.white,
+        child: widget.buttonText != null
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(),
+                  SizedBox(),
+                  SizedBox(
+                    height: widget.imageSize,
+                    width: widget.imageSize,
+                    child: widget.imageIcon is IconData
+                        ? Icon(widget.imageIcon, color: BAppColors.white)
+                        : SvgPicture.asset(
+                            widget.imageIcon,
+                            color: BAppColors.white,
+                          ),
                   ),
-          ),
-        ),
+                  SizedBox(),
+                  Text(
+                    widget.buttonText!,
+                    style: BAppStyles.body.copyWith(
+                        color: widget.textColor, fontSize: widget.fontSize),
+                  ),
+                  SizedBox(),
+                ],
+              )
+            : SizedBox(
+                height: BSizes.iconMd - 3,
+                width: BSizes.iconMd - 3,
+                child: widget.imageIcon is IconData
+                    ? Center(
+                        child: Icon(widget.imageIcon, color: BAppColors.white))
+                    : Center(
+                        child: SvgPicture.asset(
+                          widget.imageIcon,
+                          color: BAppColors.white,
+                        ),
+                      ),
+              ),
       ),
     );
   }
@@ -167,8 +201,8 @@ class _AppButtonsState extends State<AppButtons> {
                     ),
                   if (widget.buttonText != null)
                     Text(widget.buttonText!,
-                        style:
-                            BAppStyles.body.copyWith(color: BAppColors.white))
+                        style: BAppStyles.body.copyWith(
+                            color: BAppColors.white, fontSize: widget.fontSize))
                 ],
               ),
             ),

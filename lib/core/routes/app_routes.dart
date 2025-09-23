@@ -7,6 +7,8 @@ import 'package:bogo_latest/features/dashboard/home/home_screen.dart';
 import 'package:bogo_latest/features/dashboard/home/language/language_screen.dart';
 import 'package:bogo_latest/features/dashboard/item_detail/item_detail_screen.dart';
 import 'package:bogo_latest/features/dashboard/screen/dashboard_screen.dart';
+import 'package:bogo_latest/features/ludo_game/profile/friends_info_screen.dart';
+import 'package:bogo_latest/features/ludo_game/profile/game_profile_screen.dart';
 import 'package:bogo_latest/features/onboarding/onboarding_screen.dart';
 import 'package:bogo_latest/features/auth/screens/register_complete/register_complete_screen.dart';
 import 'package:bogo_latest/features/dashboard/offers/offer_info_screen.dart';
@@ -44,6 +46,16 @@ class AppRouter {
             NavigationHelper.slideFromRight(const OnboardingScreen(), state),
       ),
       GoRoute(
+        path: '/gameProfileScreen1',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const GameProfileScreen(), state),
+      ),
+      GoRoute(
+        path: '/friendsInfoScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const FriendsInfoScreen(), state),
+      ),
+      GoRoute(
         path: '/authHomeScreen',
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const AuthHomeScreen(), state),
@@ -60,13 +72,13 @@ class AppRouter {
       ),
       GoRoute(
         path: '/otpVerificationScreen',
-        pageBuilder: (context, state) =>
-            NavigationHelper.slideFromRight(const OtpVerificationScreen(), state),
+        pageBuilder: (context, state) => NavigationHelper.slideFromRight(
+            const OtpVerificationScreen(), state),
       ),
       GoRoute(
         path: '/registerCompleteScreen',
-        pageBuilder: (context, state) =>
-            NavigationHelper.slideFromRight(const RegisterCompleteScreen(), state),
+        pageBuilder: (context, state) => NavigationHelper.slideFromRight(
+            const RegisterCompleteScreen(), state),
       ),
       GoRoute(
         path: '/homeScreen',
