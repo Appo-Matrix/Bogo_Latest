@@ -58,7 +58,7 @@ class _BogoAiScreenState extends State<BogoAiScreen> {
 crossAxisAlignment: CrossAxisAlignment.center,                children: [
                   /// orb
                   Image.asset(
-                    BImages.bogoAiGif,
+                    BImages.bogoAi,
 
                     fit: BoxFit.contain,
                   ),
