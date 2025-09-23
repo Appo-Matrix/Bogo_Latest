@@ -1,7 +1,18 @@
 class AppStrings {
   static const String appName = "Bogo App";
   static const String hotelName = "Hotel Name";
+  static const String viewMore = "view more";
+  static const String nOu = "Name or Username";
+  static const String facebookFriend = "Facebook Friends";
+  static const String profile = "Profile";
+  static const String friends = "Friends";
+  static const String suggestedFriend = "Suggested Friends";
+  static const String inviteSocialMedia = "Invite via Social Media";
+  static const String smsInvite = "Invite via SMS";
+  static const String goCollect = "Go out for a collective";
   static const String otpHint = "Enter your secret PIN";
+  static const String goInvite = "Go Out Invite";
+  static const String invite10win100xp = "Invite 10 friends and win 100 XP";
   static const String premiumAccount = "PREMIUM ACCOUNT";
   static const String aziri000 = "aziri000";
   static const String aziriAbdessatar = "AZIRI ABDESSATAR";

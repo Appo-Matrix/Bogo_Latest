@@ -1,6 +1,5 @@
 import 'package:bogo_latest/core/utils/common_widgets/app_buttons.dart';
 import 'package:bogo_latest/core/utils/common_widgets/app_dot_carousel.dart';
-import 'package:bogo_latest/core/utils/common_widgets/app_scaffold.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_text_field.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
@@ -26,118 +25,117 @@ class HomeScreen extends StatelessWidget {
           context.push('/settingScreen');
         },
       ),
-      body: AppScreen(
-        child: Column(
-          children: [
-            SizedBox(height: BSizes.size9 + 1),
-            Row(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: BSizes.size20),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
               children: [
-                Expanded(
-                    child: CustomTextField(
-                  hintText: AppStrings.searchHint,
-                  prefixIcon: BImages.search,
-                )),
-                SizedBox(width: BSizes.size5),
-                AppButtons.square(
-                  imageIcon: BImages.filter,
-                  onTap: () {
-                    context.push('/filterScreen');
-                  },
+                SizedBox(height: BSizes.size9 + 1),
+                Row(
+                  children: [
+                    Expanded(
+                        child: CustomTextField(
+                      hintText: AppStrings.searchHint,
+                      prefixIcon: BImages.search,
+                    )),
+                    SizedBox(width: BSizes.size5),
+                    AppButtons.square(
+                      imageIcon: BImages.filter,
+                      onTap: () {},
+                    ),
+                  ],
                 ),
+                SizedBox(height: BSizes.xl - 4),
+                AppDotCarousel(slides: [
+                  CarouselSlide(
+                      carouselImage: BImages.carousel1,
+                      onFavourite: () {},
+                      title: AppStrings.hotelName,
+                      distance: 5.2,
+                      location: AppStrings.afghanistan,
+                      onRate: () {}),
+                  CarouselSlide(
+                      carouselImage: BImages.carousel1,
+                      onFavourite: () {},
+                      title: AppStrings.hotelName,
+                      distance: 5.2,
+                      location: AppStrings.afghanistan,
+                      onRate: () {}),
+                  CarouselSlide(
+                      carouselImage: BImages.carousel1,
+                      onFavourite: () {},
+                      title: AppStrings.hotelName,
+                      distance: 5.2,
+                      location: AppStrings.afghanistan,
+                      onRate: () {})
+                ], height: 177),
+                SizedBox(height: BSizes.xl - 4),
+                Center(
+                  child: SizedBox(
+                    height: 120,
+                    width: 385,
+                    child: Center(
+                      child: FixedPositionAnimatedButtonList(items: [
+                        FixedPositionAnimatedButtonItem(
+                            imageIcon: BImages.pizza,
+                            onTap: () {},
+                            textTitle: "restaurants"),
+                        FixedPositionAnimatedButtonItem(
+                            imageIcon: BImages.hotel,
+                            onTap: () {},
+                            textTitle: "hotels"),
+                        FixedPositionAnimatedButtonItem(
+                            imageIcon: BImages.sport,
+                            onTap: () {},
+                            textTitle: "sport"),
+                        FixedPositionAnimatedButtonItem(
+                            imageIcon: BImages.entertainment,
+                            onTap: () {},
+                            textTitle: "entertainment"),
+                      ]),
+                    ),
+                  ),
+                ),
+                SizedBox(height: BSizes.xl - 4),
+                InfoItemList(items: [
+                  InfoItems(
+                      imagePath: BImages.hotel3,
+                      onFavourite: () {},
+                      rating: 4.2,
+                      title: AppStrings.hotelName,
+                      distance: 5.2,
+                      location: AppStrings.afghanistan,
+                      views: 55,
+                      notch1: "1=2",
+                      notch2: "25%", onTap: () {
+
+                  }),
+                  InfoItems(
+                      imagePath: BImages.hotel2,
+                      onFavourite: () {},
+                      rating: 4.2,
+                      title: AppStrings.hotelName,
+                      distance: 5.2,
+                      location: AppStrings.afghanistan,
+                      views: 55,
+                      notch1: "1=2",
+                      notch2: "25%", onTap: () {  }),
+                  InfoItems(
+                      imagePath: BImages.hotel3,
+                      onFavourite: () {},
+                      rating: 4.2,
+                      title: AppStrings.hotelName,
+                      distance: 5.2,
+                      location: AppStrings.afghanistan,
+                      views: 55,
+                      notch1: "1=2",
+                      notch2: "25%", onTap: () {  })
+                ]),
+                SizedBox(height: BSizes.size90)
               ],
             ),
-            SizedBox(height: BSizes.xl - 4),
-            AppDotCarousel(slides: [
-              CarouselSlide(
-                  carouselImage: BImages.carousel1,
-                  onFavourite: () {},
-                  title: AppStrings.hotelName,
-                  distance: 5.2,
-                  location: AppStrings.afghanistan,
-                  onRate: () {}),
-              CarouselSlide(
-                  carouselImage: BImages.carousel1,
-                  onFavourite: () {},
-                  title: AppStrings.hotelName,
-                  distance: 5.2,
-                  location: AppStrings.afghanistan,
-                  onRate: () {}),
-              CarouselSlide(
-                  carouselImage: BImages.carousel1,
-                  onFavourite: () {},
-                  title: AppStrings.hotelName,
-                  distance: 5.2,
-                  location: AppStrings.afghanistan,
-                  onRate: () {})
-            ], height: 177),
-            SizedBox(height: BSizes.xl - 4),
-            Center(
-              child: SizedBox(
-                height: 120,
-                width: 385,
-                child: Center(
-                  child: FixedPositionAnimatedButtonList(items: [
-                    FixedPositionAnimatedButtonItem(
-                        imageIcon: BImages.pizza,
-                        onTap: () {},
-                        textTitle: "restaurants"),
-                    FixedPositionAnimatedButtonItem(
-                        imageIcon: BImages.hotel,
-                        onTap: () {},
-                        textTitle: "hotels"),
-                    FixedPositionAnimatedButtonItem(
-                        imageIcon: BImages.sport,
-                        onTap: () {},
-                        textTitle: "sport"),
-                    FixedPositionAnimatedButtonItem(
-                        imageIcon: BImages.entertainment,
-                        onTap: () {},
-                        textTitle: "entertainment"),
-                  ]),
-                ),
-              ),
-            ),
-            SizedBox(height: BSizes.xl - 4),
-            InfoItemList(items: [
-              InfoItems(
-                  imagePath: BImages.hotel3,
-                  onFavourite: () {},
-                  rating: 4.2,
-                  title: AppStrings.hotelName,
-                  distance: 5.2,
-                  location: AppStrings.afghanistan,
-                  views: 55,
-                  notch1: "1=2",
-                  notch2: "25%",
-                  onTap: () {
-                    context.push('/itemDetailScreen');
-                  }),
-              InfoItems(
-                  imagePath: BImages.hotel2,
-                  onFavourite: () {},
-                  rating: 4.2,
-                  title: AppStrings.hotelName,
-                  distance: 5.2,
-                  location: AppStrings.afghanistan,
-                  views: 55,
-                  notch1: "1=2",
-                  notch2: "25%",
-                  onTap: () {
-                  }),
-              InfoItems(
-                  imagePath: BImages.hotel3,
-                  onFavourite: () {},
-                  rating: 4.2,
-                  title: AppStrings.hotelName,
-                  distance: 5.2,
-                  location: AppStrings.afghanistan,
-                  views: 55,
-                  notch1: "1=2",
-                  notch2: "25%",
-                  onTap: () {})
-            ]),
-            SizedBox(height: BSizes.size90)
-          ],
+          ),
         ),
       ),
     );

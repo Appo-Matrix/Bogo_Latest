@@ -11,6 +11,9 @@ class BAppColors {
   static const Color facebookContainarColor = Color(0xFF3F51B2);
   static const Color white = Color(0xFFFFFFFF);
 
+  //light purple
+  static const Color lightPurple400 = Color(0xFF673AB3);
+
   // ✅ Existing Primary Green Shades
   static const Color lightest = Color(0xFFE6F3DB);
   static const Color lighter = Color(0xFFCBE7B4);
@@ -35,6 +38,10 @@ class BAppColors {
   static const Color lightGray800 = Color(0xFF182230);
   static const Color lightGray900 = Color(0xFF101828);
   static const Color lightGray1000 = Color(0xFF1F2024);
+
+  //Gray
+  static const Color darkGray400 = Color(0xFF2E2E2E);
+  static const Color darkGray500 = Color(0xFF212121);
 
   // ✅ Errors
   static const Color error100 = Color(0xFFFEE4E2);
@@ -81,6 +88,9 @@ class BAppColors {
   static const Color red700 = Color(0xFFD32F2F);
   static const Color red800 = Color(0xFFC62828);
   static const Color red900 = Color(0xFFB71C1C);
+
+  //light blue
+  static const Color lightBlue500 = Color(0xFF1A96F0);
 
   // 🔵 Blue Shades
   static const Color blue100 = Color(0xFFE3F2FD);

@@ -11,8 +11,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final bool showBack;
   final bool showLogo;
+  final bool isDark;
   final bool showNotification;
   final dynamic trailing;
+  final Widget? trailingWidget;
   final VoidCallback? onLeading;
   final VoidCallback? onTrailing;
   final bool trailingBorder;
@@ -21,24 +23,42 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
   final Color leadingColor;
   final Color titleColor; // 👈 NEW PARAM
-
-  const CustomAppBar({
-    this.height = BSizes.appBarHeight,
-    this.title,
-    this.leading,
-    this.onLeading,
-    this.onNotification,
-    this.trailing,
-    this.onTrailing,
-    this.isImage = false,
-    this.showBack = false,
-    this.showLogo = false,
-    this.trailingBorder = false,
-    this.showNotification = false,
-    this.leadingColor = BAppColors.white,
-    this.titleColor = BAppColors.black1000, // 👈 default black
-    super.key,
-  });
+  //
+  // const CustomAppBar({
+  //   this.height = BSizes.appBarHeight,
+  //   this.title,
+  //   this.leading,
+  //   this.onLeading,
+  //   this.onNotification,
+  //   this.trailing,
+  //   this.onTrailing,
+  //   this.isImage = false,
+  //   this.showBack = false,
+  //   this.showLogo = false,
+  //   this.trailingBorder = false,
+  //   this.showNotification = false,
+  //   this.leadingColor = BAppColors.white,
+  //   this.titleColor = BAppColors.black1000, // 👈 default black
+  //   super.key,
+  // });
+  const CustomAppBar(
+      {this.height = BSizes.appBarHeight,
+      this.title,
+      this.leading,
+      this.onLeading,
+      this.isDark = false,
+      this.onNotification,
+      this.trailing,
+      this.trailingWidget,
+      this.onTrailing,
+      this.isImage = false,
+      this.showBack = false,
+      this.showLogo = false,
+      this.trailingBorder = false,
+      this.showNotification = false,
+        this.leadingColor = BAppColors.white,
+        this.titleColor = BAppColors.black1000, // 👈 default black
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,68 +68,120 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         automaticallyImplyLeading: false,
         title: (title != null && showLogo == false)
             ? Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            /// 🔹 Leading (Back icon OR custom icon)
-            if (showBack && leading == null)
-              GestureDetector(
-                onTap: context.pop,
-                child: Icon(
-                  Icons.arrow_back,
-                  size: 24,
-                  color: leadingColor,
-                ),
-              ),
-            if (!showBack && leading != null)
-              GestureDetector(
-                onTap: onLeading,
-                child: SizedBox(
-                  child: leading is IconData
-                      ? Icon(
-                    leading,
-                    color: leadingColor,
-                  )
-                      : SizedBox(
-                    height: 32,
-                    width: 32,
-                    child: SvgPicture.asset(
-                      leading,
-                      color: leadingColor,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  if (showBack && leading == null)
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: leading is IconData
+                          ? Icon(
+                              leading,
+                              size: 24,
+                              color: isDark
+                                  ? BAppColors.white
+                                  : BAppColors.black1000,
+                            )
+                          : SizedBox(
+                              height: BSizes.iconMd + 2,
+                              width: BSizes.iconMd - 2,
+                              child: SvgPicture.asset(
+                                BImages.back,
+                                color: isDark
+                                    ? BAppColors.white
+                                    : BAppColors.black1000,
+                              )),
                     ),
+                  if (!showBack && leading != null)
+                    GestureDetector(
+                      onTap: onLeading,
+                      child: SizedBox(
+                        child: leading is IconData
+                            ? Icon(leading)
+                            : SizedBox(
+                                height: 32,
+                                width: 32,
+                                child: SvgPicture.asset(
+                                  leading,
+                                  color: isDark
+                                      ? BAppColors.white
+                                      : BAppColors.black1000,
+                                )),
+                      ),
+                    ),
+                  SizedBox(
+                    width: BSizes.size20,
                   ),
-                ),
-              ),
+                  if (title != null)
+                    Text(
+                      title!,
+                      style: BAppStyles.poppins(
+                          color:
+                              isDark ? BAppColors.white : BAppColors.black1000,
+                          fontSize: 18,
+                          weight: FontWeight.w700),
+                    ),
+                  Spacer(),
+                  if (trailing == null && showNotification == true)
+                    GestureDetector(
+                      onTap: onNotification,
+                      child: SizedBox(
+                          height: 32,
+                          width: 32,
+                          child: SvgPicture.asset(
+                            BImages.notifications,
+                          )),
+                    ),
+                  if (trailing != null &&
+                      !showNotification &&
+                      trailingWidget == null)
+                    GestureDetector(
+                      onTap: onTrailing,
+                      child: Container(
+                        height: 52,
+                        width: 52,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: trailingBorder
+                                    ? BAppColors.lightGray300
+                                    : Colors.transparent),
+                            borderRadius: BorderRadius.circular(12)),
+                        child: trailing is IconData
+                            ? Icon(
+                                trailing,
+                                size: 21,
+                                color: isDark
+                                    ? BAppColors.white
+                                    : BAppColors.black1000,
+                              )
+                            : (isImage
+                                ? SizedBox(
+                                    height: 21,
+                                    width: 21,
+                                    child: Center(
+                                        child: Image.asset(
+                                      trailing,
+                                    )),
+                                  )
+                                : SizedBox(
+                                    height: 21,
+                                    width: 21,
+                                    child: Center(
+                                        child: SvgPicture.asset(
+                                      trailing,
+                                    )),
+                                  )),
+                      ),
+                    ),
+                  if (trailing == null &&
+                      showNotification == false &&
+                      trailingWidget != null)
+                    trailingWidget!,
+                ],
+              )
 
-            SizedBox(width: BSizes.size35),
 
-            /// 🔹 Title
-            if (title != null)
-              Text(
-                title!,
-                style: BAppStyles.poppins(
-                  color: titleColor, // 👈 Now dynamic
-                  fontSize: 18,
-                  weight: FontWeight.w700,
-                ),
-              ),
-
-            Spacer(),
-
-            /// 🔹 Notifications
-            if (trailing == null && showNotification == true)
-              GestureDetector(
-                onTap: onNotification,
-                child: SizedBox(
-                  height: 32,
-                  width: 32,
-                  child: SvgPicture.asset(BImages.notifications),
-                ),
-              ),
-
-            /// 🔹 Trailing
-            if (trailing != null) _buildTrailing(),
-          ],
-        )
             : Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -204,7 +276,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           width: 21,
           child: Center(child: SvgPicture.asset(trailing)),
         )),
-      ),
+              ),
+
     );
   }
 
