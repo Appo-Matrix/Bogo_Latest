@@ -1,4 +1,3 @@
-import 'package:bogo_latest/core/utils/common_widgets/app_scaffold.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
@@ -72,16 +71,21 @@ class OffersScreen extends StatelessWidget {
         leadingColor: BAppColors.black1000,
         title: "offers",
       ),
-      body: AppScreen(
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: NotificationAlert(description: AppStrings.offerDesc),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: BSizes.size20),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: NotificationAlert(description: AppStrings.offerDesc),
+                ),
+                SizedBox(height: BSizes.size20),
+                OfferItemsList(items: items)
+              ],
             ),
-            SizedBox(height: BSizes.size20),
-            OfferItemsList(items: items)
-          ],
+          ),
         ),
       ),
     );

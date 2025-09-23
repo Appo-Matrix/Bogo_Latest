@@ -1,5 +1,5 @@
-import 'package:bogo_latest/core/utils/common_widgets/app_scaffold.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
+import 'package:bogo_latest/core/utils/common_widgets/dot_indicators.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
@@ -17,73 +17,67 @@ import 'package:bogo_latest/features/ludo_game/widgets/text_three_dots.dart';
 import 'package:bogo_latest/features/ludo_game/widgets/three_dots.dart';
 import 'package:flutter/material.dart';
 
-class GameProfileScreen extends StatelessWidget {
+class GameProfileScreen extends StatefulWidget {
   const GameProfileScreen({super.key});
 
   @override
+  State<GameProfileScreen> createState() => _GameProfileScreenState();
+}
+
+class _GameProfileScreenState extends State<GameProfileScreen> {
+  late PageController _pageController;
+  int currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: 0);
+    _pageController.addListener(() {
+      int page = _pageController.page?.round() ?? 0;
+      if (currentIndex != page) {
+        setState(() {
+          currentIndex = page;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final List<StatusCardItems> statusCardList = [
-      StatusCardItems(
-          imagePath: BImages.favourite,
-          backgroundColor: BAppColors.orange800,
-          title: "Favorite",
-          count: 5,
-          onNext: () {}),
-      StatusCardItems(
-          imagePath: BImages.driving,
-          backgroundColor: BAppColors.purple400,
-          title: "reservation",
-          count: 2,
-          onNext: () {}),
-      StatusCardItems(
-          imagePath: BImages.xp,
-          backgroundColor: BAppColors.yellow700,
-          title: "Total XP",
-          count: 2000,
-          onNext: () {}),
-    ];
-    final List<GProfileItems> gProfileList = [
-      GProfileItems(
-          onTile: () {},
-          imagePath: BImages.profile5,
-          titleText: "ISLAM AZIRI",
-          subtitleText: "VANIS220",
-          onTrailing: () {}),
-      GProfileItems(
-          onTile: () {},
-          imagePath: BImages.profile5,
-          titleText: "ISLAM AZIRI",
-          subtitleText: "VANIS220",
-          onTrailing: () {}),
-      GProfileItems(
-          onTile: () {},
-          imagePath: BImages.profile5,
-          titleText: "ISLAM AZIRI",
-          subtitleText: "VANIS220",
-          onTrailing: () {}),
-    ];
-    final List<PersonItems> personList = [
-      PersonItems(
+    final List<PersonCard> personCard = [
+      PersonCard(
           profileImage: BImages.profile5,
           title: "ISLAM AZIRI",
+          showFriendButton: true,
           onFollow: () {},
-          onFriend: () { // on Tap this button navigates to FriendsInfoScreen
+          onFriend: () {
+            // on Tap this button navigates to FriendsInfoScreen
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => FriendsInfoScreen()));
           }),
-      PersonItems(
+      PersonCard(
           profileImage: BImages.profile5,
           title: "ISLAM AZIRI",
           onFollow: () {},
-          onFriend: () { // on Tap this button navigates to FriendsInfoScreen
+          showFriendButton: true,
+          onFriend: () {
+            // on Tap this button navigates to FriendsInfoScreen
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => FriendsInfoScreen()));
           }),
-      PersonItems(
+      PersonCard(
           profileImage: BImages.profile5,
           title: "ISLAM AZIRI",
+          showFriendButton: true,
           onFollow: () {},
-          onFriend: () { // on Tap this button navigates to FriendsInfoScreen
+          onFriend: () {
+            // on Tap this button navigates to FriendsInfoScreen
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => FriendsInfoScreen()));
           }),
@@ -100,70 +94,141 @@ class GameProfileScreen extends StatelessWidget {
               buttonImage: BImages.edit,
               onProfile: () {},
               onButton: () {})),
-      body: AppScreen(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: BSizes.size35),
-            StatusCardList(statusCardList: statusCardList),
-            SizedBox(height: BSizes.size35),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: BSizes.size20),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Column(
+                SizedBox(height: BSizes.size35),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
                     children: [
-                      TextEvenlySpacedRow(
-                          title: AppStrings.friends,
-                          widget: ThreeDots(onTap: () {})),
-                      SizedBox(height: BSizes.size20),
-                      SizedBox(
-                          height: 280,
-                          child: GProfileList(gProfileList: gProfileList))
+                      StatusCardWidget(
+                          imagePath: BImages.favourite,
+                          backgroundColor: BAppColors.orange800,
+                          title: "Favorite",
+                          count: 5,
+                          onNext: () {}),
+                      StatusCardWidget(
+                          imagePath: BImages.driving,
+                          backgroundColor: BAppColors.purple400,
+                          title: "reservation",
+                          count: 2,
+                          onNext: () {}),
+                      StatusCardWidget(
+                          imagePath: BImages.xp,
+                          backgroundColor: BAppColors.yellow700,
+                          title: "Total XP",
+                          count: 2000,
+                          onNext: () {}),
                     ],
                   ),
                 ),
-                PersonList(
-                  personList: personList,
-                  showAddButton: true,
+                SizedBox(height: BSizes.size35),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          TextEvenlySpacedRow(
+                              title: AppStrings.friends,
+                              widget: ThreeDots(onTap: () {})),
+                          SizedBox(height: BSizes.size20),
+                          SizedBox(
+                              height: 280,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    GProfileWidget(
+                                        onTile: () {},
+                                        imagePath: BImages.profile5,
+                                        titleText: "ISLAM AZIRI",
+                                        subtitleText: "VANIS220",
+                                        onTrailing: () {}),
+                                    GProfileWidget(
+                                        onTile: () {},
+                                        imagePath: BImages.profile5,
+                                        titleText: "ISLAM AZIRI",
+                                        subtitleText: "VANIS220",
+                                        onTrailing: () {}),
+                                    GProfileWidget(
+                                        onTile: () {},
+                                        imagePath: BImages.profile5,
+                                        titleText: "ISLAM AZIRI",
+                                        subtitleText: "VANIS220",
+                                        onTrailing: () {}),
+                                  ],
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(35),
+                      child: Container(
+                        height: 320,
+                        width: 124,
+                        decoration: BoxDecoration(
+                          color: BAppColors.darkGray500.withOpacity(.5),
+                        ),
+                        child: Stack(children: [
+                          PageView(
+                            controller: _pageController,
+                            scrollDirection: Axis.horizontal,
+                            children: personCard,
+                          ),
+                          Positioned(
+                              right: 20,
+                              bottom: 145,
+                              child: DotIndicators(
+                                  length: personCard.length,
+                                  currentIndex: currentIndex))
+                        ]),
+                      ),
+                    )
+                  ],
                 ),
+                SizedBox(height: BSizes.size20 + 10),
+                PlayGame(
+                  onGame: () {},
+                  onNext: () {},
+                ),
+                SizedBox(height: BSizes.size20),
+                EventCard(
+                    imagePath: BImages.p2p,
+                    title: AppStrings.goCollect,
+                    subtitle: AppStrings.goInvite,
+                    onNext: () {}),
+                SizedBox(height: BSizes.size20),
+                TaskRewardCard(
+                    xp: 100,
+                    title: AppStrings.invite10win100xp,
+                    progress: 0,
+                    onNext: () {},
+                    total: 100,
+                    image: BImages.invitePeople),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          AppStrings.viewMore,
+                          style: BAppStyles.poppins(
+                              color: BAppColors.white,
+                              fontSize: 12,
+                              weight: FontWeight.w500),
+                        )),
+                  ),
+                )
               ],
             ),
-            SizedBox(height: BSizes.size20 + 10),
-            PlayGame(
-              onGame: () {},
-              onNext: () {},
-            ),
-            SizedBox(height: BSizes.size20),
-            EventCard(
-                imagePath: BImages.p2p,
-                title: AppStrings.goCollect,
-                subtitle: AppStrings.goInvite,
-                onNext: () {}),
-            SizedBox(height: BSizes.size20),
-            TaskRewardCard(
-                xp: 100,
-                title: AppStrings.invite10win100xp,
-                progress: 0,
-                onNext: () {},
-                total: 100,
-                image: BImages.invitePeople),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 15),
-                child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      AppStrings.viewMore,
-                      style: BAppStyles.poppins(
-                          color: BAppColors.white,
-                          fontSize: 12,
-                          weight: FontWeight.w500),
-                    )),
-              ),
-            )
-          ],
+          ),
         ),
       ),
     );
