@@ -1,6 +1,3 @@
-
-
-
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_styles.dart';
@@ -12,6 +9,7 @@ class TaskRewardCard extends StatelessWidget {
   final int progress;
   final int total;
   final String image;
+  final VoidCallback onPressed; // 👈 required callback
 
   const TaskRewardCard({
     super.key,
@@ -20,6 +18,7 @@ class TaskRewardCard extends StatelessWidget {
     required this.progress,
     required this.total,
     required this.image,
+    required this.onPressed, // 👈 enforce it
   });
 
   @override
@@ -50,8 +49,8 @@ class TaskRewardCard extends StatelessWidget {
                   top: 2,
                   left: 8,
                   child: Container(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 14, vertical: 4),
                     decoration: BoxDecoration(
                       color: Colors.amber,
                       borderRadius: BorderRadius.circular(12),
@@ -115,7 +114,8 @@ class TaskRewardCard extends StatelessWidget {
                                   double width =
                                       constraints.maxWidth * progressValue;
                                   return AnimatedContainer(
-                                    duration: const Duration(milliseconds: 300),
+                                    duration:
+                                    const Duration(milliseconds: 300),
                                     width: width,
                                     height: 40,
                                     decoration: BoxDecoration(
@@ -150,14 +150,16 @@ class TaskRewardCard extends StatelessWidget {
                         ),
 
                         const SizedBox(width: 12),
-                        // 👈 space between bar & arrow
 
-                        /// Arrow
-                        const Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
-                          size: 16,
-                        ),
+                        /// Arrow (clickable)
+                        IconButton(
+                          icon: const Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                            size: 16,
+                          ),
+                          onPressed: onPressed, // 👈 now required
+                        )
                       ],
                     ),
                   ],

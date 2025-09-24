@@ -194,6 +194,9 @@ class AppRouter {
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const ShareRewardScreen(), state),
       ),
+      GoRoute(
+        path: '/friendProfileScreen',
+      ),
     ],
   );
 }

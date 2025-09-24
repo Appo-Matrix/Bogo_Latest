@@ -88,7 +88,7 @@ class ShareRewardScreen extends StatelessWidget {
                     width: 336,
                     borderRadius: 46,
                     backgroundColor: BAppColors.buttonGreen,
-                    text: 'Continue',
+                    text: 'Share',
                     onPressed: () {
                       // TODO: navigation / share
                     },

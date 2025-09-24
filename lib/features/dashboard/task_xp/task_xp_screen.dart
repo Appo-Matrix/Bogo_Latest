@@ -6,6 +6,7 @@ import 'package:bogo_latest/features/dashboard/task_xp/widgets/reward_card.dart'
 import 'package:bogo_latest/features/dashboard/task_xp/widgets/task_reward_card.dart';
 import 'package:bogo_latest/features/dashboard/task_xp/widgets/task_xp_benner.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
@@ -43,13 +44,16 @@ class _TaskScreenState extends State<TaskScreen> {
 
             /// Example Task List
             Column(
-              children: const [
+              children:  [
                 TaskRewardCard(
                   xp: 100,
                   title: "Invite 10 friends and win 100 XP",
                   progress: 5,
                   total: 10,
                   image: "assets/images/friends.png",
+                  onPressed: () {
+                    context.push('/shareRewardScreen');
+                  },
                 ),
                 TaskRewardCard(
                   xp: 100,
@@ -57,6 +61,10 @@ class _TaskScreenState extends State<TaskScreen> {
                   progress: 4,
                   total: 5,
                   image: "assets/images/friends.png",
+                  onPressed: () {
+                    context.push('/shareRewardScreen');
+
+                  },
                 ),
                 TaskRewardCard(
                   xp: 50,
@@ -64,6 +72,10 @@ class _TaskScreenState extends State<TaskScreen> {
                   progress: 0,
                   total: 1,
                   image: "assets/images/friends.png",
+                  onPressed: () {
+                    context.push('/shareRewardScreen');
+
+                  },
                 ),
                 TaskRewardCard(
                   xp: 50,
@@ -71,6 +83,10 @@ class _TaskScreenState extends State<TaskScreen> {
                   progress: 0,
                   total: 1,
                   image: "assets/images/friends.png",
+                  onPressed: () {
+                    context.push('/shareRewardScreen');
+
+                  },
                 ),
                 TaskRewardCard(
                   xp: 50,
@@ -78,6 +94,10 @@ class _TaskScreenState extends State<TaskScreen> {
                   progress: 0,
                   total: 1,
                   image: "assets/images/friends.png",
+                  onPressed: () {
+                    context.push('/shareRewardScreen');
+
+                  },
                 ),
                 TaskRewardCard(
                   xp: 50,
@@ -85,6 +105,10 @@ class _TaskScreenState extends State<TaskScreen> {
                   progress: 0,
                   total: 1,
                   image: "assets/images/friends.png",
+                  onPressed: () {
+                    context.push('/shareRewardScreen');
+
+                  },
                 ),
                 TaskRewardCard(
                   xp: 50,
@@ -92,6 +116,10 @@ class _TaskScreenState extends State<TaskScreen> {
                   progress: 0,
                   total: 1,
                   image: "assets/images/friends.png",
+                  onPressed: () {
+                    context.push('/shareRewardScreen');
+
+                  },
                 ),
               ],
             )

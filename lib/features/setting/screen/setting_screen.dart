@@ -184,7 +184,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       icon: Icons.power_settings_new_rounded,
                       title: "Sign Out",
                       onTap: () {
-                        context.push('/shareRewardScreen');
+                        context.push('/friendProfileScreen');
                       },
                     ),
                   ],
