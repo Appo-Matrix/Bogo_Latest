@@ -1,4 +1,3 @@
-import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
@@ -65,7 +64,7 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
                     ),
                     child: Center(
                       child: (Image.asset(
-                        BImages.ludo,
+                        BImages.bannerCh,
                         fit: BoxFit.contain,
                       )),
                     ),
@@ -83,9 +82,9 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
                 children: [
                   GameBannerCarousel(
                     imageAssets: [
-                      BImages.dives1,
-                      BImages.dives2,
-                      BImages.dives1
+                      BImages.backgroundCh1,
+                      BImages.backgroundCh2,
+                      BImages.backgroundCh1,
                     ],
                     onIndexChanged: (i) => setState(() => _current = i),
                   ),

@@ -183,7 +183,9 @@ class _SettingScreenState extends State<SettingScreen> {
                     BogoMenuItem(
                       icon: Icons.power_settings_new_rounded,
                       title: "Sign Out",
-                      onTap: () {},
+                      onTap: () {
+                        context.push('/friendProfileScreen');
+                      },
                     ),
                   ],
                 ],

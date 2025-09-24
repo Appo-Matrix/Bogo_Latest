@@ -46,7 +46,7 @@ class _InvitationPlayScreenState extends State<InvitationPlayScreen> {
                     // Middle: profile avatar + name
                     Expanded(
                       child: ProfileAvatars(
-                        imagePath: BImages.profileDive,
+                        imagePath: BImages.profileFriend,
                         name: "Avinash Kumar",
                         fontSize: 22,
                         isOnline: true,
@@ -60,13 +60,13 @@ class _InvitationPlayScreenState extends State<InvitationPlayScreen> {
                       children: [
                         ActionSquare(
                             onTap: () {},
-                            child: Image.asset(BImages.share1,
+                            child: Image.asset(BImages.shareIcon,
                                 fit: BoxFit.contain)),
                         const SizedBox(height: 12),
                         ActionSquare(
                             onTap: () {},
                             child:
-                                Image.asset(BImages.gift, fit: BoxFit.contain)),
+                                Image.asset(BImages.giftImage, fit: BoxFit.contain)),
                       ],
                     ),
                   ],
@@ -77,7 +77,7 @@ class _InvitationPlayScreenState extends State<InvitationPlayScreen> {
                 ),
                 // Search offer text field
                 SearchOfferField(
-                  assetPath: BImages.searchAdd,
+                  assetPath: BImages.searchAddIcon,
                   hintText: "Search for an offer",
                   onChanged: (value) {},
                 ),
@@ -108,7 +108,7 @@ class _InvitationPlayScreenState extends State<InvitationPlayScreen> {
                 ),
                 // Add Conditions
                 ActionTile(
-                  assetPath: BImages.privacy,
+                  assetPath: BImages.privacyIcon,
                   text: "Add a condition",
                   icon: Icons.keyboard_arrow_down,
                   onTap: () {},
