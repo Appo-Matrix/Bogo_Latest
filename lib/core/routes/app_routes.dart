@@ -7,6 +7,8 @@ import 'package:bogo_latest/features/dashboard/home/home_screen.dart';
 import 'package:bogo_latest/features/dashboard/home/language/language_screen.dart';
 import 'package:bogo_latest/features/dashboard/item_detail/item_detail_screen.dart';
 import 'package:bogo_latest/features/dashboard/screen/dashboard_screen.dart';
+import 'package:bogo_latest/features/dashboard/task_xp/share_reward_screen.dart';
+import 'package:bogo_latest/features/dashboard/task_xp/task_xp_screen.dart';
 import 'package:bogo_latest/features/ludo_game/profile/friends_info_screen.dart';
 import 'package:bogo_latest/features/ludo_game/profile/game_profile_screen.dart';
 import 'package:bogo_latest/features/onboarding/onboarding_screen.dart';
@@ -181,6 +183,16 @@ class AppRouter {
         path: '/filterScreen',
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const FilterScreen(), state),
+      ),
+      GoRoute(
+        path: '/taskXpScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const TaskScreen(), state),
+      ),
+      GoRoute(
+        path: '/shareRewardScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const ShareRewardScreen(), state),
       ),
     ],
   );

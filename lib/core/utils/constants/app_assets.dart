@@ -41,6 +41,8 @@ class BImages {
   static const String card = "assets/icons/Card.png";
   static const String edit = "assets/icons/edit.svg";
 
+  static const String message= "assets/icons/Message.png";
+  static const String card= "assets/icons/Card.png";
   static const String authProfileImage = "assets/icons/profile_image.png";
   static const String authBackground = "assets/images/auth.jpg";
   static const String completeScreen = "assets/images/complate-screen.png";
@@ -67,6 +69,7 @@ class BImages {
   // Icons
 
 // Icons
+// Icons
   static const String search = "assets/icons/search.svg";
   static const String clock = "assets/icons/clock.svg";
   static const String read = "assets/icons/read.svg";
@@ -83,6 +86,10 @@ class BImages {
   static const String food = "assets/icons/food.svg";
   static const String back = "assets/icons/back.svg";
   static const String notifications = "assets/icons/notifications.svg";
+  static const String bogoAiGif = "assets/images/ai-bogo.gif";
+  static const String taskImage = "assets/images/task_image.png";
+  static const String rewardImage = "assets/images/reward_image.png";
+  static const String advertistmentImage = "assets/images/advertistment_image.png";
 // Store images
 
 
