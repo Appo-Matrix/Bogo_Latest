@@ -108,7 +108,7 @@ class _InvitationPlayScreenState extends State<InvitationPlayScreen> {
                 ),
                 // Add Conditions
                 ActionTile(
-                  assetPath: BImages.privacyIcon,
+                  assetPath:BImages.privacyIcon,
                   text: "Add a condition",
                   icon: Icons.keyboard_arrow_down,
                   onTap: () {},

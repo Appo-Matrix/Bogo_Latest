@@ -104,8 +104,8 @@ class ItemDetailScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _notchContainer("get"),
-                  _verticallyDottedNotchContainer2("25%")
+                  notchContainer("get"),
+                  verticallyDottedNotchContainer2("25%")
                 ],
               )
             ],
@@ -116,7 +116,7 @@ class ItemDetailScreen extends StatelessWidget {
   }
 }
 
-Widget _notchContainer(String text) {
+Widget notchContainer(String text) {
   return ClipPath(
     clipper: QuadVerticalNotchedClipper(),
     child: Container(
@@ -135,7 +135,7 @@ Widget _notchContainer(String text) {
   );
 }
 
-Widget _verticallyDottedNotchContainer2(String text) {
+Widget verticallyDottedNotchContainer2(String text) {
   return ClipPath(
     clipper: QuadVerticalNotchedClipper(),
     child: Container(
