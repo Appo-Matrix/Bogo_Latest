@@ -55,4 +55,28 @@ class AppStrings {
       "Map for Easy Navigation to Your Destination";
   static const String onboarding6Subtitle =
       "Use the map to guide you to any destination you wish to reach";
+  static const String information='Information';
+  static const String subTileInformation='At our barber shop, we provide the highest \nlevels of service and attention to detail\n attention to detail ';
+  static const String breakfast='Breakfast';
+  static const String beach='beach';
+  static const String parking='parking';
+  static const String location='5.2KM';
+  static const String areaName='Afghanistan';
+  static const String storeName='Store Name';
+  static const String review='4.2';
+  static const String productName='Product name';
+  static const String price='2550 DA';
+  static const String description='"desc": "Burger Country Steak Hachée 100g, Lettuce, Tomato, Onions, Gouda"';
+  static const String reservation='Reservation';
+  static const String adults='Adults';
+  static const String children='Children';
+  static const String tField='Write your recommendations';
+  static const String worktime='Worktime';
+  static const String sunday='Sunday';
+  static const String monday='Monday';
+  static const String tuesday='Tuesday';
+  static const String wednesday='Wednesday';
+  static const String thursday='Thursday';
+  static const String friday='Friday';
+  static const String saturday='Saturday';
 }
