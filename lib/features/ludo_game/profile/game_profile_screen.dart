@@ -52,7 +52,7 @@ class _GameProfileScreenState extends State<GameProfileScreen> {
   Widget build(BuildContext context) {
     final List<PersonCard> personCard = [
       PersonCard(
-          profileImage: BImages.profile5,
+          profileImage: BImages.profile,
           title: "ISLAM AZIRI",
           showFriendButton: true,
           onFollow: () {},
@@ -62,7 +62,7 @@ class _GameProfileScreenState extends State<GameProfileScreen> {
                 MaterialPageRoute(builder: (context) => FriendsInfoScreen()));
           }),
       PersonCard(
-          profileImage: BImages.profile5,
+          profileImage: BImages.profile,
           title: "ISLAM AZIRI",
           onFollow: () {},
           showFriendButton: true,
@@ -72,7 +72,7 @@ class _GameProfileScreenState extends State<GameProfileScreen> {
                 MaterialPageRoute(builder: (context) => FriendsInfoScreen()));
           }),
       PersonCard(
-          profileImage: BImages.profile5,
+          profileImage: BImages.profile,
           title: "ISLAM AZIRI",
           showFriendButton: true,
           onFollow: () {},
@@ -145,19 +145,19 @@ class _GameProfileScreenState extends State<GameProfileScreen> {
                                   children: [
                                     GProfileWidget(
                                         onTile: () {},
-                                        imagePath: BImages.profile5,
+                                        imagePath: BImages.profile,
                                         titleText: "ISLAM AZIRI",
                                         subtitleText: "VANIS220",
                                         onTrailing: () {}),
                                     GProfileWidget(
                                         onTile: () {},
-                                        imagePath: BImages.profile5,
+                                        imagePath: BImages.profile,
                                         titleText: "ISLAM AZIRI",
                                         subtitleText: "VANIS220",
                                         onTrailing: () {}),
                                     GProfileWidget(
                                         onTile: () {},
-                                        imagePath: BImages.profile5,
+                                        imagePath: BImages.profile,
                                         titleText: "ISLAM AZIRI",
                                         subtitleText: "VANIS220",
                                         onTrailing: () {}),

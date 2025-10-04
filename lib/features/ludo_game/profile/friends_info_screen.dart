@@ -25,7 +25,7 @@ class FriendsInfoScreen extends StatelessWidget {
         trailingWidget: SizedBox(
           width: 232,
           child: CustomTextField(
-            prefixIcon: BImages.addSearch,
+            prefixIcon: BImages.searchAddIcon,
             prefixIconSize: 16,
             hintText: AppStrings.nOu,
             hintTextColor: BAppColors.white,
@@ -48,18 +48,18 @@ class FriendsInfoScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     StatusCardWidget(
-                        imagePath: BImages.addFriend,
+                        imagePath: BImages.profileFriend,
                         backgroundColor:
                             BAppColors.lightPurple400.withOpacity(.5),
                         title: AppStrings.smsInvite,
                         onNext: () {}),
                     StatusCardWidget(
-                        imagePath: BImages.facebook2,
+                        imagePath: BImages.facebook,
                         backgroundColor: BAppColors.blue600,
                         title: AppStrings.facebookFriend,
                         onNext: () {}),
                     StatusCardWidget(
-                        imagePath: BImages.share,
+                        imagePath: BImages.shareIcon,
                         backgroundColor:
                             BAppColors.lightBlue500.withOpacity(0.2),
                         title: AppStrings.inviteSocialMedia,
@@ -72,19 +72,19 @@ class FriendsInfoScreen extends StatelessWidget {
                   title: AppStrings.friends, widget: ThreeDots(onTap: () {})),
               GProfileWidget(
                   onTile: () {},
-                  imagePath: BImages.profile5,
+                  imagePath: BImages.profile,
                   titleText: "ISLAM AZIRI",
                   subtitleText: "VANIS220",
                   onTrailing: () {}),
               GProfileWidget(
                   onTile: () {},
-                  imagePath: BImages.profile5,
+                  imagePath: BImages.profile,
                   titleText: "ISLAM AZIRI",
                   subtitleText: "VANIS220",
                   onTrailing: () {}),
               GProfileWidget(
                   onTile: () {},
-                  imagePath: BImages.profile5,
+                  imagePath: BImages.profile,
                   titleText: "ISLAM AZIRI",
                   subtitleText: "VANIS220",
                   onTrailing: () {}),
@@ -98,22 +98,22 @@ class FriendsInfoScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     PersonCard(
-                      profileImage: BImages.profile5,
+                      profileImage: BImages.profile,
                       title: "ISLAM AZIRI",
                       onFollow: () {},
                     ),
                     PersonCard(
-                      profileImage: BImages.profile5,
+                      profileImage: BImages.profile,
                       title: "ISLAM AZIRI",
                       onFollow: () {},
                     ),
                     PersonCard(
-                      profileImage: BImages.profile5,
+                      profileImage: BImages.profile,
                       title: "ISLAM AZIRI",
                       onFollow: () {},
                     ),
                     PersonCard(
-                      profileImage: BImages.profile5,
+                      profileImage: BImages.profile,
                       title: "ISLAM AZIRI",
                       onFollow: () {},
                     ),

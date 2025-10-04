@@ -2,11 +2,17 @@ import 'package:bogo_latest/features/auth/screens/Register/Register_screen.dart'
 import 'package:bogo_latest/features/auth/screens/auth_home/auth_home_screen.dart';
 import 'package:bogo_latest/features/auth/screens/login/login_screen.dart';
 import 'package:bogo_latest/features/auth/screens/otp/otp_verification_screen.dart';
+import 'package:bogo_latest/features/dashboard/Reservation/reservation_screen.dart';
+import 'package:bogo_latest/features/dashboard/activity/activity_screen.dart';
 import 'package:bogo_latest/features/dashboard/filter/filter_screen.dart';
 import 'package:bogo_latest/features/dashboard/home/home_screen.dart';
 import 'package:bogo_latest/features/dashboard/home/language/language_screen.dart';
 import 'package:bogo_latest/features/dashboard/item_detail/item_detail_screen.dart';
+import 'package:bogo_latest/features/dashboard/map/map_screen.dart';
+import 'package:bogo_latest/features/dashboard/product/enter_price_screen.dart';
+import 'package:bogo_latest/features/dashboard/product/product_list_screen.dart';
 import 'package:bogo_latest/features/dashboard/screen/dashboard_screen.dart';
+import 'package:bogo_latest/features/dashboard/store_details/store_detail_screen.dart';
 import 'package:bogo_latest/features/dashboard/task_xp/share_reward_screen.dart';
 import 'package:bogo_latest/features/dashboard/task_xp/task_xp_screen.dart';
 import 'package:bogo_latest/features/ludo_game/profile/friends_info_screen.dart';
@@ -27,6 +33,10 @@ import 'package:bogo_latest/features/setting/verification/camera_verification/sc
 import 'package:bogo_latest/features/setting/verification/camera_verification/screens/id_card_verification_screen.dart';
 import 'package:bogo_latest/features/setting/verification/camera_verification/screens/selfie_with_id_card_screen.dart';
 import 'package:bogo_latest/features/setting/verification/identity_verification_screen.dart';
+import 'package:bogo_latest/game/challenge/challenge_screen.dart';
+import 'package:bogo_latest/game/challenge/invition/invitation_screen.dart';
+import 'package:bogo_latest/game/challenge/invition/invition_play/invitation_play_screen.dart';
+import 'package:bogo_latest/game/challenge/invition/invition_play/match/match_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/splash/splash_screen.dart';
@@ -180,11 +190,6 @@ class AppRouter {
             NavigationHelper.slideFromRight(const FilterScreen(), state),
       ),
       GoRoute(
-        path: '/filterScreen',
-        pageBuilder: (context, state) =>
-            NavigationHelper.slideFromRight(const FilterScreen(), state),
-      ),
-      GoRoute(
         path: '/taskXpScreen',
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const TaskScreen(), state),
@@ -195,7 +200,54 @@ class AppRouter {
             NavigationHelper.slideFromRight(const ShareRewardScreen(), state),
       ),
       GoRoute(
-        path: '/friendProfileScreen',
+        path: '/googleMapScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const GoogleMapScreen(), state),
+      ),
+      GoRoute(
+        path: '/invitationPlayScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const InvitationPlayScreen(), state),
+      ),
+      GoRoute(
+        path: '/activityScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const ActivityScreen(), state),
+      ),
+      GoRoute(
+        path: '/productListScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const ProductListScreen(), state),
+      ),
+      GoRoute(
+        path: '/enterPriceScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const EnterPriceScreen(), state),
+      ),
+      GoRoute(
+        path: '/reservationScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const ReservationScreen(), state),
+      ),
+      GoRoute(
+        path: '/storeDetailScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const StoreDetailScreen(), state),
+      ),
+      GoRoute(
+        path: '/matchScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const MatchScreen(), state),
+      ),
+      GoRoute(
+        path: '/invitationScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const InvitationScreen(), state),
+      ),
+      GoRoute(
+        path: '/challengeScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const ChallengeScreen(), state),
       ),
     ],
   );

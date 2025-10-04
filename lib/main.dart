@@ -25,11 +25,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// return MaterialApp.router(
-//   title: 'Bogo',
-//   debugShowCheckedModeBanner: false,
-//   themeMode: ThemeMode.system,
-//   theme: BAppTheme.lightTheme,
-//   darkTheme: BAppTheme.darkTheme,
-//   routerConfig: AppRouter.router,
-// );

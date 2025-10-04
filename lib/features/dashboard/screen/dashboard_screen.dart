@@ -22,7 +22,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   late final List<Widget> _pages = [
     const HomeScreen(key: PageStorageKey('home')),
     const ActivityScreen(key: PageStorageKey('activity')),
-    const MapScreen(key: PageStorageKey('maps')),
+    // const MapScreen(key: PageStorageKey('maps')),
     const ProfileScreen(key: PageStorageKey('profile')),
   ];
 

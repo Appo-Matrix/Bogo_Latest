@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:country_state_city_picker/country_state_city_picker.dart';
 
 class LocationDropdown extends StatefulWidget {
   final Function(String country, String city) onChanged;

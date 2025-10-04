@@ -52,6 +52,16 @@ class BImages {
   static const String phoneMock = "assets/images/phoneMock.png";
 // Icons
   static const String search = "assets/icons/search.svg";
+  static const String edit = "assets/icons/edit.svg";
+  static const String xp = "assets/icons/xp.png";
+  static const String p2p = "assets/icons/p2p.svg";
+  static const String profileDive = "assets/images/profileDive.png";
+  static const String loser = "assets/images/loser.png";
+  static const String loserAvatar = "assets/images/avatars.png";
+  static const String cartoon = "assets/images/cartoon.png";
+  static const String winner = "assets/images/winner.png";
+  static const String ramada = "assets/images/ramada.png";
+  static const String invitePeople = "assets/images/invite_people.png";
   static const String clock = "assets/icons/clock.svg";
   static const String read = "assets/icons/read.svg";
   static const String driving = "assets/icons/driving.svg";

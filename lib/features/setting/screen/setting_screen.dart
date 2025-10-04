@@ -116,6 +116,9 @@ class _SettingScreenState extends State<SettingScreen> {
                           label: '2000 XP',
                           pillColor: BAppColors.black900,
                           iconBgColor: BAppColors.black500,
+                          onTap: (){
+                            context.push('/gameProfileScreen1');
+                          },
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -125,6 +128,10 @@ class _SettingScreenState extends State<SettingScreen> {
                           label: 'Friends',
                           pillColor: BAppColors.black900,
                           iconBgColor: Colors.red,
+                          onTap: (){
+                            context.push('/enterPriceScreen');
+                          },
+
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -134,6 +141,8 @@ class _SettingScreenState extends State<SettingScreen> {
                           label: 'Booking',
                           pillColor: BAppColors.black900,
                           iconBgColor: BAppColors.blue700,
+                          onTap: (){},
+
                         ),
                       ),
                     ],

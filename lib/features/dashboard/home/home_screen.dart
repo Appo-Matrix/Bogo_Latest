@@ -8,9 +8,24 @@ import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/features/dashboard/widgets/info_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/utils/common/common_widgets/bogo_bottom_nav_bar.dart';
+import '../../../core/utils/constants/app_colors.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() => _currentIndex = index);
+    // Yahan pe aap apni navigation logic dal sakte ho
+    // jaise GoRouter ya Navigator.push
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,65 +51,61 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomTextField(
-                      hintText: AppStrings.searchHint,
-                      prefixIcon: BImages.search,
-                    )),
+                          hintText: AppStrings.searchHint,
+                          prefixIcon: BImages.search,
+                        )),
                     SizedBox(width: BSizes.size5),
                     AppButtons.square(
                       imageIcon: BImages.filter,
-                      onTap: () {},
+                      onTap: () {
+                        context.push('/filterScreen');
+                      },
                     ),
                   ],
                 ),
                 SizedBox(height: BSizes.xl - 4),
-                AppDotCarousel(slides: [
-                  CarouselSlide(
-                      carouselImage: BImages.carousel1,
-                      onFavourite: () {},
-                      title: AppStrings.hotelName,
-                      distance: 5.2,
-                      location: AppStrings.afghanistan,
-                      onRate: () {}),
-                  CarouselSlide(
-                      carouselImage: BImages.carousel1,
-                      onFavourite: () {},
-                      title: AppStrings.hotelName,
-                      distance: 5.2,
-                      location: AppStrings.afghanistan,
-                      onRate: () {}),
-                  CarouselSlide(
-                      carouselImage: BImages.carousel1,
-                      onFavourite: () {},
-                      title: AppStrings.hotelName,
-                      distance: 5.2,
-                      location: AppStrings.afghanistan,
-                      onRate: () {})
-                ], height: 177),
+                AppDotCarousel(
+                  slides: [
+                    CarouselSlide(
+                        carouselImage: BImages.carousel1,
+                        onFavourite: () {},
+                        title: AppStrings.hotelName,
+                        distance: 5.2,
+                        location: AppStrings.afghanistan,
+                        onRate: () {}),
+                    CarouselSlide(
+                        carouselImage: BImages.carousel1,
+                        onFavourite: () {},
+                        title: AppStrings.hotelName,
+                        distance: 5.2,
+                        location: AppStrings.afghanistan,
+                        onRate: () {}),
+                  ],
+                  height: 177,
+                ),
                 SizedBox(height: BSizes.xl - 4),
                 Center(
                   child: SizedBox(
                     height: 120,
                     width: 385,
-                    child: Center(
-                      child: FixedPositionAnimatedButtonList(items: [
-                        FixedPositionAnimatedButtonItem(
-                            imageIcon: BImages.pizza,
-                            onTap: () {},
-                            textTitle: "restaurants"),
-                        FixedPositionAnimatedButtonItem(
-                            imageIcon: BImages.hotel,
-                            onTap: () {},
-                            textTitle: "hotels"),
-                        FixedPositionAnimatedButtonItem(
-                            imageIcon: BImages.sport,
-                            onTap: () {},
-                            textTitle: "sport"),
-                        FixedPositionAnimatedButtonItem(
-                            imageIcon: BImages.entertainment,
-                            onTap: () {},
-                            textTitle: "entertainment"),
-                      ]),
-                    ),
+                    child: FixedPositionAnimatedButtonList(items: [
+                      FixedPositionAnimatedButtonItem(
+                          imageIcon: BImages.pizza,
+                          onTap: () {},
+                          textTitle: "restaurants"),
+                      FixedPositionAnimatedButtonItem(
+                          imageIcon: BImages.hotel,
+                          onTap: () {},
+                          textTitle: "hotels"),
+                      FixedPositionAnimatedButtonItem(
+                          imageIcon: BImages.sport,
+                          onTap: () {},
+                          textTitle: "sport"),
+                      FixedPositionAnimatedButtonItem(
+                          imageIcon: BImages.entertainment,
+                          onTap: () {},
+                          textTitle: "entertainment"),
+                    ]),
                   ),
                 ),
                 SizedBox(height: BSizes.xl - 4),
@@ -108,19 +119,8 @@ class HomeScreen extends StatelessWidget {
                       location: AppStrings.afghanistan,
                       views: 55,
                       notch1: "1=2",
-                      notch2: "25%", onTap: () {
-
-                  }),
-                  InfoItems(
-                      imagePath: BImages.hotel2,
-                      onFavourite: () {},
-                      rating: 4.2,
-                      title: AppStrings.hotelName,
-                      distance: 5.2,
-                      location: AppStrings.afghanistan,
-                      views: 55,
-                      notch1: "1=2",
-                      notch2: "25%", onTap: () {  }),
+                      notch2: "25%",
+                      onTap: () {}),
                   InfoItems(
                       imagePath: BImages.hotel3,
                       onFavourite: () {},
@@ -130,13 +130,46 @@ class HomeScreen extends StatelessWidget {
                       location: AppStrings.afghanistan,
                       views: 55,
                       notch1: "1=2",
-                      notch2: "25%", onTap: () {  })
+                      notch2: "25%",
+                      onTap: () {}),
+                  InfoItems(
+                      imagePath: BImages.hotel3,
+                      onFavourite: () {},
+                      rating: 4.2,
+                      title: AppStrings.hotelName,
+                      distance: 5.2,
+                      location: AppStrings.afghanistan,
+                      views: 55,
+                      notch1: "1=2",
+                      notch2: "25%",
+                      onTap: () {}),
                 ]),
-                SizedBox(height: BSizes.size90)
+                SizedBox(height: BSizes.size90),
               ],
             ),
           ),
         ),
+      ),
+
+      // ✅ Bottom Nav Bar yahan add kiya
+      bottomNavigationBar: BogoBottomNavBar(
+        currentIndex: _currentIndex,
+        onItemSelected: _onItemTapped,
+        barHeight: 92,
+        cornerRadius: 46,
+        indicatorDiameter: 60,
+        indicatorOverlap: 26,
+        notchRadiusExtra: 8,
+        barColor: BAppColors.black1000,
+        indicatorColor: BAppColors.primary,
+        selectedColor: BAppColors.white,
+        unselectedColor: BAppColors.lightGray400,
+        items: [
+          BogoNavItem(asset: BImages.bottomHomeIcon, label: 'Home'),
+          BogoNavItem(asset: BImages.bottomHomeIcon, label: 'Activity'),
+          BogoNavItem(asset: BImages.bottomHomeIcon, label: 'Maps'),
+          BogoNavItem(asset: BImages.bottomHomeIcon, label: 'Profile'),
+        ],
       ),
     );
   }
