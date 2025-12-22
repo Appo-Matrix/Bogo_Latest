@@ -47,7 +47,7 @@ class SubscribedOfferInfo extends StatelessWidget {
           width: 382,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: BAppColors.lightGray100),
+              color: BAppColors.darkGray500),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
@@ -125,7 +125,7 @@ class SubscribedOfferInfo extends StatelessWidget {
                           Align(
                             alignment: Alignment.topLeft,
                             child: Padding(
-                              padding: EdgeInsets.only(left: 25, top: 20),
+                              padding: EdgeInsets.only(left: 20, top: 20),
                               child: Container(
                                 height: 45,
                                 width: 45,
@@ -175,13 +175,13 @@ class SubscribedOfferInfo extends StatelessWidget {
                     ),
                     Container(
                       height: 212,
-                      width: 170,
+                      width: 147,
                       decoration: BoxDecoration(
                           color: BAppColors.lightGray300,
                           borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(35))),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           _customListTile(
                               "assets/icons/adult.png", "Adults", adultCount),
@@ -234,11 +234,11 @@ Widget _customListTile(String imagePath, String title, int trailing) {
         width: BSizes.cardRadiusSm,
       ),
       SizedBox.square(
-        dimension: 45,
+        dimension: 24,
         child: Center(child: Image.asset(imagePath)),
       ),
       SizedBox(
-        width: BSizes.size5,
+        width: BSizes.sm,
       ),
       Text(
         title,
@@ -252,7 +252,7 @@ Widget _customListTile(String imagePath, String title, int trailing) {
             .copyWith(fontWeight: FontWeight.w600, color: BAppColors.white),
       ),
       SizedBox(
-        width: BSizes.size20,
+        width: BSizes.md,
       ),
     ],
   );
@@ -261,8 +261,8 @@ Widget _customListTile(String imagePath, String title, int trailing) {
 Widget _dashedLines(Color lineColor) {
   return DottedLine(
     axis: Axis.horizontal,
-    dashWidth: 10,
-    dashGap: 10,
+    dashWidth: 5,
+    dashGap: 6,
     height: 4,
     colors: [lineColor],
   );
@@ -277,8 +277,8 @@ Widget _dateContainer(String text) {
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
       Container(
-        height: 45,
-        width: 45,
+        height: 40,
+        width: 40,
         decoration: BoxDecoration(
             color: BAppColors.lightGray600,
             borderRadius: BorderRadius.circular(18)),
@@ -298,7 +298,7 @@ Widget _dateContainer(String text) {
       Text(
         text,
         style: BAppStyles.poppins(
-            color: BAppColors.white, fontSize: 16, weight: FontWeight.w400),
+            color: BAppColors.white, fontSize: 14, weight: FontWeight.w400),
       )
     ],
   );

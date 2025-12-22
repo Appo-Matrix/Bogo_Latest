@@ -129,7 +129,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           pillColor: BAppColors.black900,
                           iconBgColor: Colors.red,
                           onTap: (){
-                            context.push('/enterPriceScreen');
+                            context.push('/profileScreen');
                           },
 
                         ),
@@ -141,7 +141,9 @@ class _SettingScreenState extends State<SettingScreen> {
                           label: 'Booking',
                           pillColor: BAppColors.black900,
                           iconBgColor: BAppColors.blue700,
-                          onTap: (){},
+                          onTap: (){
+                            context.push('/offersInfoScreen');
+                          },
 
                         ),
                       ),
@@ -193,7 +195,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       icon: Icons.power_settings_new_rounded,
                       title: "Sign Out",
                       onTap: () {
-                        context.push('/friendProfileScreen');
+                        context.push('/profileScreen');
                       },
                     ),
                   ],

@@ -1,8 +1,9 @@
+import 'package:bogo_latest/features/auth/screens/onboarding/widgets/onboarding_card.dart';
+import 'package:bogo_latest/features/auth/screens/onboarding/widgets/onboarding_data.dart';
 import 'package:flutter/material.dart';
 import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
-import 'package:bogo_latest/features/onboarding/widgets/onboarding_card.dart';
-import 'package:bogo_latest/features/onboarding/widgets/onboarding_data.dart';
+
 import 'package:go_router/go_router.dart';
 
 class OnboardingScreen extends StatefulWidget {

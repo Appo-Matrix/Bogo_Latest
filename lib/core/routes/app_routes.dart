@@ -1,6 +1,7 @@
 import 'package:bogo_latest/features/auth/screens/Register/Register_screen.dart';
 import 'package:bogo_latest/features/auth/screens/auth_home/auth_home_screen.dart';
 import 'package:bogo_latest/features/auth/screens/login/login_screen.dart';
+import 'package:bogo_latest/features/auth/screens/onboarding/onboarding_screen.dart';
 import 'package:bogo_latest/features/auth/screens/otp/otp_verification_screen.dart';
 import 'package:bogo_latest/features/dashboard/Reservation/reservation_screen.dart';
 import 'package:bogo_latest/features/dashboard/activity/activity_screen.dart';
@@ -11,13 +12,13 @@ import 'package:bogo_latest/features/dashboard/item_detail/item_detail_screen.da
 import 'package:bogo_latest/features/dashboard/map/map_screen.dart';
 import 'package:bogo_latest/features/dashboard/product/enter_price_screen.dart';
 import 'package:bogo_latest/features/dashboard/product/product_list_screen.dart';
+import 'package:bogo_latest/features/dashboard/profile/profile_screen.dart';
 import 'package:bogo_latest/features/dashboard/screen/dashboard_screen.dart';
 import 'package:bogo_latest/features/dashboard/store_details/store_detail_screen.dart';
 import 'package:bogo_latest/features/dashboard/task_xp/share_reward_screen.dart';
 import 'package:bogo_latest/features/dashboard/task_xp/task_xp_screen.dart';
 import 'package:bogo_latest/features/ludo_game/profile/friends_info_screen.dart';
 import 'package:bogo_latest/features/ludo_game/profile/game_profile_screen.dart';
-import 'package:bogo_latest/features/onboarding/onboarding_screen.dart';
 import 'package:bogo_latest/features/auth/screens/register_complete/register_complete_screen.dart';
 import 'package:bogo_latest/features/dashboard/offers/offer_info_screen.dart';
 import 'package:bogo_latest/features/dashboard/offers/offers_screen.dart';
@@ -248,6 +249,11 @@ class AppRouter {
         path: '/challengeScreen',
         pageBuilder: (context, state) =>
             NavigationHelper.slideFromRight(const ChallengeScreen(), state),
+      ),
+      GoRoute(
+        path: '/profileScreen',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const ProfileScreen(), state),
       ),
     ],
   );

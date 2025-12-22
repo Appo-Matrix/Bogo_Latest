@@ -1,6 +1,7 @@
 import 'package:bogo_latest/core/utils/common_widgets/app_buttons.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
+import 'package:bogo_latest/core/utils/constants/app_colors.dart';
 import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/features/dashboard/widgets/subscribed_offer_info.dart';
@@ -9,6 +10,7 @@ import 'package:bogo_latest/core/utils/constants/app_sizes.dart';
 import 'package:bogo_latest/core/utils/constants/app_assets.dart';
 import 'package:bogo_latest/core/utils/constants/app_strings.dart';
 import 'package:bogo_latest/core/utils/common_widgets/custom_app_bar.dart';
+import 'package:go_router/go_router.dart';
 
 class OfferInfoScreen extends StatelessWidget {
   const OfferInfoScreen({super.key});
@@ -19,12 +21,19 @@ class OfferInfoScreen extends StatelessWidget {
       appBar: CustomAppBar(
         showBack: true,
         title: "Offer",
+
+
+
+
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: BSizes.size20),
+        padding: EdgeInsets.symmetric(horizontal: BSizes.md),
+
         child: SafeArea(
           child: SingleChildScrollView(
+
               child: Column(
+
             children: [
               SizedBox(
                 height: BSizes.size20,
@@ -45,7 +54,9 @@ class OfferInfoScreen extends StatelessWidget {
               SizedBox(
                 height: BSizes.fontSizeLhx,
               ),
-              DragButton(text: "Activate the offer", onActivated: () {})
+              DragButton(text: "Activate the offer", onActivated: () {
+                context.push('/offerOtpScreen');
+              })
             ],
           )),
         ),
